@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const featuredPost = posts[0];
+const otherPosts = posts.slice(1);
+---
+
+<Layout title="Blog — Learn, Build, Tell" description="Read our latest posts.">
+  <section class="bg-surface-warm border-b border-border">
+    <div class="max-w-6xl mx-auto px-5 py-16">
+      <span class="text-xs font-bold uppercase tracking-widest text-primary-dark">Stories & Insights</span>
+      <h1 class="font-display text-5xl md:text-6xl font-bold text-ink mt-2 tracking-tight">Blog</h1>
+      <div class="w-20 h-1 bg-primary mt-6"></div>
+    </div>
+  </section>
+
+  <section class="py-16 px-5">
+    <div class="max-w-6xl mx-auto">
+      <!-- Featured post -->
+      {featuredPost && (
+        <div class="mb-12">
+          <BlogCard
+            title={featuredPost.data.title}
+            description={featuredPost.data.description}
+            date={featuredPost.data.date}
+            slug={featuredPost.id}
+            tags={featuredPost.data.tags}
+            featured={true}
+          />
+        </div>
+      )}
+
+      <!-- Other posts -->
+      <div class="grid md:grid-cols-2 gap-x-12 gap-y-0">
+        {otherPosts.map((post) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date}
+            slug={post.id}
+            tags={post.data.tags}
+          />
+        ))}
+      </div>
+
+      {posts.length === 0 && (
+        <p class="text-ink-muted text-lg font-body">No posts yet. Check back soon!</p>
+      )}
+    </div>
+  </section>
+</Layout>

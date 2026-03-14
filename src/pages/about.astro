@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Gallery from '../components/Gallery.astro';
+import { getCollection, render } from 'astro:content';
+
+const pages = await getCollection('pages');
+const aboutPage = pages.find((p) => p.id === 'about');
+
+let Content: any = null;
+if (aboutPage) {
+  const rendered = await render(aboutPage);
+  Content = rendered.Content;
+}
+---
+
+<Layout title="About — Learn, Build, Tell" description="Learn more about Bryan Jeshua.">
+  <!-- Gallery strip at the top -->
+  <Gallery strip={true} />
+
+  <section class="bg-surface-warm border-b border-border">
+    <div class="max-w-6xl mx-auto px-5 py-16">
+      <span class="text-xs font-bold uppercase tracking-widest text-primary-dark">Who I Am</span>
+      <h1 class="font-display text-5xl md:text-6xl font-bold text-ink mt-2 tracking-tight">About</h1>
+      <div class="w-20 h-1 bg-primary mt-6"></div>
+    </div>
+  </section>
+
+  <section class="py-16 px-5">
+    <div class="max-w-3xl mx-auto prose-editorial">
+      {Content ? <Content /> : <p>About page coming soon.</p>}
+    </div>
+  </section>
+</Layout>

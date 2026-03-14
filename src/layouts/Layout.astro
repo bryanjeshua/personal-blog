@@ -1,23 +1,122 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import '../styles/global.css';
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = 'Learn, Build, Tell — Bryan Jeshua', description = 'Bryan Jeshua\'s personal site — product management, AI, and building things that matter.' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href=`${base}favicon.svg` />
+    <link rel="icon" href=`${base}favicon.ico` />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <!-- Prevent flash: apply saved theme before render -->
+    <script is:inline>
+      (function() {
+        const saved = localStorage.getItem('theme');
+        if (saved === 'light') {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- Yellow accent bar -->
+    <div class="h-1 bg-primary w-full"></div>
+
+    <header class="bg-header-bg border-b-2 border-border-dark sticky top-0 z-50">
+      <nav class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+        <a href={base} class="group flex items-center gap-2.5">
+          <img src=`${base}favicon.svg` alt="Logo" class="w-8 h-8 group-hover:scale-110 transition-transform" />
+          <span class="font-display text-2xl font-bold tracking-tight text-ink">Learn, Build, Tell</span>
+        </a>
+        <div class="flex items-center gap-6">
+          <ul class="flex gap-8 text-sm font-medium tracking-wide uppercase">
+            <li>
+              <a href={base} class="text-ink-light hover:text-ink border-b-2 border-transparent hover:border-primary pb-1 transition-all">Home</a>
+            </li>
+            <li>
+              <a href=`${base}blog` class="text-ink-light hover:text-ink border-b-2 border-transparent hover:border-primary pb-1 transition-all">Blog</a>
+            </li>
+            <li>
+              <a href=`${base}about` class="text-ink-light hover:text-ink border-b-2 border-transparent hover:border-primary pb-1 transition-all">About</a>
+            </li>
+          </ul>
+          <!-- Theme toggle -->
+          <button
+            id="theme-toggle"
+            type="button"
+            class="relative w-9 h-9 flex items-center justify-center rounded-full border border-border hover:border-primary transition-colors"
+            aria-label="Toggle theme"
+          >
+            <!-- Sun icon (visible in dark mode) -->
+            <svg class="w-4 h-4 text-ink sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <circle cx="12" cy="12" r="5" />
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+            </svg>
+            <!-- Moon icon (visible in light mode) -->
+            <svg class="w-4 h-4 text-ink moon-icon absolute" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="bg-surface-dark text-white mt-0">
+      <div class="max-w-6xl mx-auto px-5 py-12">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-2.5">
+            <img src=`${base}favicon.svg` alt="Logo" class="w-7 h-7" />
+            <span class="font-display text-lg font-bold">Learn, Build, Tell</span>
+          </div>
+          <ul class="flex gap-6 text-sm text-white/60 font-body">
+            <li><a href={base} class="hover:text-primary transition-colors">Home</a></li>
+            <li><a href=`${base}blog` class="hover:text-primary transition-colors">Blog</a></li>
+            <li><a href=`${base}about` class="hover:text-primary transition-colors">About</a></li>
+          </ul>
+          <p class="text-sm text-white/40 font-body">
+            &copy; {new Date().getFullYear()} Bryan Jeshua
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Theme toggle script -->
+    <script is:inline>
+      (function() {
+        const toggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        function updateIcons() {
+          const isDark = html.classList.contains('dark');
+          document.querySelectorAll('.sun-icon').forEach(el => el.style.display = isDark ? 'block' : 'none');
+          document.querySelectorAll('.moon-icon').forEach(el => el.style.display = isDark ? 'none' : 'block');
+        }
+
+        updateIcons();
+
+        toggle.addEventListener('click', function() {
+          html.classList.toggle('dark');
+          const isDark = html.classList.contains('dark');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+          updateIcons();
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const base = import.meta.env.BASE_URL;
+
+const formattedDate = new Date(post.data.date).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<Layout title={`${post.data.title} — Learn, Build, Tell`} description={post.data.description}>
+  <!-- Article header -->
+  <header class="bg-surface-warm border-b border-border">
+    <div class="max-w-3xl mx-auto px-5 py-16 md:py-20">
+      {post.data.tags.length > 0 && (
+        <div class="flex gap-2 flex-wrap mb-5 animate-fade-up">
+          {post.data.tags.map((tag) => (
+            <span class="text-xs font-bold uppercase tracking-widest text-primary-dark bg-primary/20 px-2.5 py-1">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+
+      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-ink tracking-tight leading-[1.08] animate-fade-up animate-delay-1">
+        {post.data.title}
+      </h1>
+
+      <p class="mt-6 text-xl text-ink-light leading-relaxed animate-fade-up animate-delay-2">
+        {post.data.description}
+      </p>
+
+      <div class="mt-8 flex items-center gap-4 animate-fade-up animate-delay-3">
+        <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+          <span class="font-display font-bold text-ink text-sm">{post.data.author?.charAt(0) || 'A'}</span>
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-ink">{post.data.author || 'Admin'}</p>
+          <time class="text-xs uppercase tracking-wider text-ink-muted">{formattedDate}</time>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article body -->
+  <article class="py-12 md:py-16 px-5">
+    <div class="max-w-3xl mx-auto prose-editorial">
+      <Content />
+    </div>
+  </article>
+
+  <!-- Back to blog -->
+  <div class="border-t border-border">
+    <div class="max-w-3xl mx-auto px-5 py-10">
+      <a href=`${base}blog` class="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-ink hover:text-primary-dark transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+        </svg>
+        Back to all stories
+      </a>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,12 @@
+{
+  "hero": {
+    "title": "I turn research into products people actually use.",
+    "subtitle": "Bryan Jeshua — Principal of Klaussa, an AI legal-tech startup backed by Google, NVIDIA, and UI Incubate. Previously Product at tiket.com. CS undergrad at Universitas Indonesia.",
+    "cta_text": "Read My Writing",
+    "cta_link": "/personal-blog/blog"
+  },
+  "about": {
+    "title": "The Short Version",
+    "content": "I started Klaussa because **20–30% of legal work is repetitive** — and lawyers shouldn't spend their careers on it. We built an AI co-pilot that turns weeks of contract analysis into 15 minutes. Today, we're backed by **Google for AI Startups**, the **NVIDIA Inception** program, and **UI Incubate**.\n\nBefore Klaussa, I worked on **pricing strategy at tiket.com**, where I learned how small product decisions compound across millions of users. I study **Computer Science at Universitas Indonesia**, and I write here about building products, leading teams, and figuring things out in public."
+  }
+}
