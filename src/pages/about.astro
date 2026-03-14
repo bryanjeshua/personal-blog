@@ -1,16 +1,121 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Gallery from '../components/Gallery.astro';
-import { getCollection, render } from 'astro:content';
+import Timeline from '../components/Timeline.astro';
 
-const pages = await getCollection('pages');
-const aboutPage = pages.find((p) => p.id === 'about');
-
-let Content: any = null;
-if (aboutPage) {
-  const rendered = await render(aboutPage);
-  Content = rendered.Content;
-}
+const timeline = [
+  {
+    year: "Jakarta",
+    title: "Where it started",
+    description: "Born and raised in Jakarta, Indonesia.",
+    highlight: true,
+  },
+  {
+    year: "2019 – 2022",
+    title: "SMA Sang Timur",
+    subtitle: "Valedictorian",
+    description: "Student Body Leader. Best Civic Essay awardee. Member of the Astronomy Science Club. Built the foundation for leadership and curiosity.",
+    tags: ["Valedictorian", "Student Body Leader", "Astronomy Club"],
+    highlight: true,
+  },
+  {
+    year: "2020 – 2022",
+    title: "Social Media Officer",
+    subtitle: "PT. Maxicount Indonesia · Haerde · Limans Consulting",
+    description: "Created 620+ pieces of content — season greetings, microblogs, quotes — handling ideation, design, and copywriting for business development and HRIS startups.",
+    tags: ["Content Creation", "Copywriting", "Design"],
+  },
+  {
+    year: "2023",
+    title: "Fasilkom UI — Computer Science",
+    subtitle: "Universitas Indonesia",
+    description: "Started undergrad in Computer Science. Joined Gladiatos robotics (AI Division) and EDUCARE as Fundraising Officer — raising funds from 4 main sponsors.",
+    highlight: true,
+  },
+  {
+    year: "2024",
+    title: "Teaching Assistant — Discrete Mathematics 2",
+    subtitle: "Universitas Indonesia",
+    description: "100% peer approval rating. Provided one-on-one and group tutoring, evaluated submissions with constructive feedback. 87.5% students agreed the TA explains complicated concepts in an understandable way.",
+    tags: ["TA: Discrete Math 2"],
+  },
+  {
+    year: "2024",
+    title: "Vice Director of Business Growth — RISTEK Fasilkom UI",
+    subtitle: "PIC of Datathon 2024",
+    description: "Established 10+ partners and new revenue streams acquired by Faculty boards. As PIC of Datathon 2024, secured Rp850M+ in sponsorship, grew participation 162% to 315+ teams — transforming it into the biggest student-led data competition in the country.",
+    tags: ["RISTEK", "Datathon 2024", "Partnerships"],
+    highlight: true,
+  },
+  {
+    year: "2024 – 2025",
+    title: "Managing Director — Gladiatos Robotics",
+    subtitle: "Universitas Indonesia",
+    description: "Led development of 3D environment simulations for humanoid robots and computer vision models. Managed training with mentors from SNUST Korea. Oversaw 9 iterations of robocar robots as hands-on projects for new joiners.",
+    tags: ["Robotics", "Computer Vision", "Leadership"],
+    highlight: true,
+  },
+  {
+    year: "2024 – 2025",
+    title: "Teaching Assistant — Calculus I",
+    subtitle: "Universitas Indonesia",
+    description: "Provided one-on-one and group tutoring, evaluated submissions with constructive feedback.",
+    tags: ["TA: Calculus I"],
+  },
+  {
+    year: "2025",
+    title: "Teaching Assistant — Foundation of Programming 2",
+    subtitle: "Universitas Indonesia",
+    description: "Guided students through object-oriented programming concepts and project-based learning.",
+    tags: ["TA: Programming 2"],
+  },
+  {
+    year: "Mar – Sep 2025",
+    title: "Product Management — Pricing",
+    subtitle: "tiket.com (Internship)",
+    description: "Worked on pricing strategy at one of Indonesia's largest travel platforms. Applied product management, machine learning, data science, and behavioral economics at scale.",
+    tags: ["Product Management", "Machine Learning", "Behavioral Economics"],
+    highlight: true,
+  },
+  {
+    year: "Jul 2025",
+    title: "Kapellmeister — Klaussa Indonesia",
+    subtitle: "AI Legal-Tech Startup",
+    description: "Building AI agents for legal. Backed by UI Incubate (Rp300M), Google for AI Startups, and NVIDIA Inception. Turning weeks of contract analysis into minutes.",
+    tags: ["AI", "Legal-Tech", "Google", "NVIDIA"],
+    highlight: true,
+  },
+  {
+    year: "Jul 2025 – Jan 2026",
+    title: "Teaching Assistant — Speech Language Processing",
+    subtitle: "Universitas Indonesia",
+    description: "TA for advanced NLP course covering speech recognition, language models, and processing pipelines.",
+    tags: ["TA: Speech & Language Processing"],
+  },
+  {
+    year: "Jan 2026 – Present",
+    title: "Teaching Assistant — Startup Software Project",
+    subtitle: "Universitas Indonesia",
+    description: "Guiding students through building real startup products — from ideation to shipping.",
+    tags: ["TA: Startup Software Project"],
+  },
+  {
+    year: "Sep 2025",
+    title: "Young Leaders for Indonesia — Wave 17",
+    subtitle: "YLI Foundation",
+    description: "Selected as a Wave 17 Awardee for the Young Leaders for Indonesia program.",
+    tags: ["Leadership", "Fellowship"],
+    highlight: true,
+  },
+  {
+    year: "Jan 2026 – Present",
+    title: "Project Lead — Kalana Consulting",
+    subtitle: "Full-time · Remote",
+    description: "Leading projects at Kalana Consulting.",
+    tags: ["Consulting", "Project Lead"],
+    highlight: true,
+  },
+];
 ---
 
 <Layout title="About — Learn, Build, Tell" description="Learn more about Bryan Jeshua.">
@@ -21,13 +126,57 @@ if (aboutPage) {
     <div class="max-w-6xl mx-auto px-5 py-16">
       <span class="text-xs font-bold uppercase tracking-widest text-primary-dark">Who I Am</span>
       <h1 class="font-display text-5xl md:text-6xl font-bold text-ink mt-2 tracking-tight">About</h1>
-      <div class="w-20 h-1 bg-primary mt-6"></div>
+      <svg class="w-20 h-4 mt-6" viewBox="0 0 80 16" fill="none">
+        <path d="M3 8 Q10 15 18 7 Q26 0 34 9 Q40 14 48 6 Q56 0 64 10 Q70 15 77 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" class="text-primary"/>
+      </svg>
     </div>
   </section>
 
+  <!-- Intro -->
   <section class="py-16 px-5">
     <div class="max-w-3xl mx-auto prose-editorial">
-      {Content ? <Content /> : <p>About page coming soon.</p>}
+      <h1>About Me</h1>
+      <p>I'm Bryan Jeshua — an undergraduate Computer Science student at <strong>Universitas Indonesia</strong> (Fasilkom UI) with a deep passion for product management and building AI-powered solutions.</p>
+
+      <h2>What I'm Doing Now</h2>
+      <p><strong>Kapellmeister at Klaussa</strong> — I lead an AI legal-tech startup that serves as an AI co-pilot for lawyers and in-house legal teams. We've received Rp300 million in funding from UI Incubate, and are supported by <strong>Google for AI Startups</strong> and the <strong>NVIDIA Inception</strong> program.</p>
+      <p><strong>Project Lead at Kalana Consulting</strong> — Leading consulting projects remotely.</p>
+      <p><strong>Young Leaders for Indonesia</strong> — Wave 17 Awardee at YLI Foundation.</p>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="py-16 px-5 bg-surface-warm border-y border-border">
+    <div class="max-w-3xl mx-auto">
+      <span class="text-xs font-bold uppercase tracking-widest text-primary-dark">My Background</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mt-2 tracking-tight mb-2">The Journey</h2>
+      <svg class="w-16 h-4 mb-10" viewBox="0 0 64 16" fill="none">
+        <path d="M2 9 Q9 2 16 10 Q23 16 30 6 Q37 0 44 10 Q51 15 58 7 L62 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" class="text-primary"/>
+      </svg>
+
+      <Timeline items={timeline} />
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="py-16 px-5">
+    <div class="max-w-3xl mx-auto prose-editorial">
+      <h2>Skills & Tools</h2>
+      <ul>
+        <li><strong>Product:</strong> Jira, Confluence, Amplitude, Postman, Notion, Figma</li>
+        <li><strong>Languages:</strong> Python, JavaScript, Java, Dart</li>
+        <li><strong>Frameworks:</strong> Flutter, Django, Bootstrap</li>
+        <li><strong>ML/Data:</strong> PyTorch, Scikit-Learn, NumPy, Pandas, OpenCV</li>
+        <li><strong>Infrastructure:</strong> Google Cloud, Docker, PostgreSQL, BigQuery</li>
+      </ul>
+
+      <h2>Let's Connect</h2>
+      <p>I'm always open to conversations about product management, AI, startups, or anything you're building.</p>
+      <ul>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/bryanjeshua/">bryanjeshua</a></li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/bryanjeshua">bryanjeshua</a></li>
+        <li><strong>Email:</strong> bryanjmt04@gmail.com</li>
+      </ul>
     </div>
   </section>
 </Layout>
