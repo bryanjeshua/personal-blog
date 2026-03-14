@@ -10,9 +10,55 @@ const { title, subtitle, ctaText, ctaLink } = Astro.props;
 ---
 
 <section class="relative bg-surface-warm overflow-hidden">
-  <!-- Decorative elements -->
-  <div class="absolute top-0 right-0 w-72 h-72 bg-primary/10 rounded-full -translate-y-1/2 translate-x-1/3"></div>
-  <div class="absolute bottom-0 left-0 w-48 h-48 bg-primary/8 rounded-full translate-y-1/3 -translate-x-1/4"></div>
+  <!-- Lineart silhouette figure -->
+  <div class="absolute -right-16 md:-right-8 lg:right-0 top-0 bottom-0 opacity-[0.25] pointer-events-none flex items-start pt-16 md:pt-24">
+    <svg width="480" height="440" viewBox="0 0 480 440" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-[calc(100%-4rem)] md:h-[calc(100%-6rem)] w-auto">
+      <!-- Head -->
+      <ellipse cx="240" cy="72" rx="52" ry="60" stroke="currentColor" stroke-width="2.5" class="text-primary"/>
+      <!-- Neck -->
+      <path d="M224 132 L224 160 M256 132 L256 160" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" class="text-primary"/>
+      <!-- Shoulders & torso -->
+      <path d="M224 160 Q220 165 160 190 Q120 206 100 230" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none" class="text-primary"/>
+      <path d="M256 160 Q260 165 320 190 Q360 206 380 230" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none" class="text-primary"/>
+      <!-- Torso sides (stop before laptop) -->
+      <path d="M100 230 L100 240 Q100 300 110 360" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none" class="text-primary"/>
+      <path d="M380 230 L380 240 Q380 300 370 360" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none" class="text-primary"/>
+      <!-- Torso center (stop before laptop) -->
+      <path d="M190 170 L190 270" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" class="text-primary"/>
+      <path d="M290 170 L290 270" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" class="text-primary"/>
+      <!-- Left arm (holding laptop/device) -->
+      <path d="M100 230 Q80 280 90 330 Q95 360 120 380 L180 390" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none" class="text-primary"/>
+      <!-- Right arm -->
+      <path d="M380 230 Q400 280 390 330 Q385 360 360 380 L300 390" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none" class="text-primary"/>
+      <!-- Laptop (facing the person, slight angle) -->
+      <!-- Keyboard base on lap -->
+      <path d="M145 380 Q190 395 240 390 Q290 385 335 375" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none" class="text-primary"/>
+      <path d="M145 380 Q148 392 155 400 Q200 410 240 405 Q285 400 330 390 Q336 382 335 375" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" class="text-primary"/>
+      <!-- Screen (tilted back toward person) -->
+      <path d="M150 378 Q155 340 165 300 Q170 285 175 275" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none" class="text-primary"/>
+      <path d="M330 373 Q325 340 318 305 Q315 290 312 280" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none" class="text-primary"/>
+      <path d="M175 275 Q240 265 312 280" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none" class="text-primary"/>
+      <!-- Apple logo on laptop lid (organic/curved style) -->
+      <g transform="translate(232, 320) scale(0.9)" class="text-primary">
+        <!-- Leaf -->
+        <path d="M5 -8 Q8 -14 14 -12 Q10 -8 7 -4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <!-- Apple body -->
+        <path d="M0 -2 Q-6 -6 -10 -2 Q-14 4 -12 10 Q-10 16 -6 20 Q-2 24 2 24 Q4 22 6 22 Q8 22 10 24 Q14 24 18 20 Q22 16 24 10 Q26 4 22 -2 Q18 -6 12 -2 Q8 1 6 1 Q4 1 0 -2 Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </g>
+      <!-- Hair with bangs/poni -->
+      <path d="M195 28 Q210 8 240 6 Q270 8 285 28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none" class="text-primary"/>
+      <!-- Poni/bangs falling on forehead -->
+      <path d="M205 25 Q208 42 220 52 Q225 55 228 48 Q230 40 225 30" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" class="text-primary"/>
+      <path d="M218 22 Q222 38 235 48 Q240 50 242 44 Q244 36 238 26" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" class="text-primary"/>
+      <path d="M232 20 Q238 36 250 46 Q255 48 256 42 Q258 34 252 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" class="text-primary"/>
+      <path d="M248 24 Q254 38 262 44 Q266 46 268 40 Q270 34 265 26" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none" class="text-primary"/>
+      <!-- Side hair -->
+      <path d="M192 22 Q188 45 190 65" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" class="text-primary"/>
+      <path d="M288 22 Q292 45 290 65" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" class="text-primary"/>
+      <!-- Subtle collar -->
+      <path d="M218 160 L240 178 L262 160" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" class="text-primary"/>
+    </svg>
+  </div>
 
   <div class="max-w-6xl mx-auto px-5 py-24 md:py-32 relative">
     <div class="max-w-3xl">
