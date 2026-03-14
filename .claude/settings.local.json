@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "WebFetch(domain:www.vox.com)",
+      "WebSearch",
+      "WebFetch(domain:www.linkedin.com)",
+      "WebFetch(domain:cs.ui.ac.id)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.instagram.com)"
+    ]
+  }
+}
