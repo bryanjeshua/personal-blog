@@ -15,7 +15,7 @@ const imageFiles = import.meta.glob<{ default: ImageMetadata }>(
 let images = Object.entries(imageFiles).map(([path, mod]) => {
   const filename = path.split('/').pop() || '';
   const name = filename.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
-  const src = path.replace('/public', '');
+  const src = path.replace('/public', '').split('/').map(encodeURIComponent).join('/');
   return { src, name, filename };
 }).sort((a, b) => a.filename.localeCompare(b.filename));
 
