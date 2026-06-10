@@ -558,112 +558,88 @@ const timeline = [
         <path d="M2 9 Q9 2 16 10 Q23 16 30 6 Q37 0 44 10 Q51 15 58 7 L62 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" class="text-primary"/>
       </svg>
 
-      <!-- Active -->
-      <div class="mb-10">
-        <div class="text-xs font-bold uppercase tracking-widest text-ink/30 mb-1 pb-2 border-b border-border">Active</div>
-        <div class="divide-y divide-border">
-          {[
-            {
-              role: "Ketua Pelaksana",
-              org: "Musyawarah Mahasiswa 2025 — IKM Fasilkom UI",
-              period: "Apr 2025 – Present",
-              desc: null,
-            },
-            {
-              role: "Formulation Team Member",
-              org: "Ikatan Alumni Sang Timur (IAST)",
-              period: "Nov 2023 – Present",
-              desc: "Selecting candidates across 10 batches for new chairman. Leading hearings for chairman election and constitution amendment across 35 batches.",
-            },
-          ].map(({ role, org, period, desc }) => (
-            <div class="flex gap-5 py-4 group">
-              <div class="w-1 rounded-full bg-primary-dark shrink-0 self-stretch"></div>
-              <div class="flex-1 min-w-0">
-                <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
-                  <span class="text-sm font-semibold text-ink group-hover:text-primary-dark transition-colors">{role}</span>
-                  <span class="text-xs text-ink/30 shrink-0">{period}</span>
-                </div>
-                <div class="text-xs font-medium text-ink/50 mt-0.5">{org}</div>
-                {desc && <div class="text-xs text-ink/40 mt-1.5 leading-relaxed">{desc}</div>}
+      <div class="divide-y divide-border">
+        {[
+          {
+            role: "Ketua Pelaksana",
+            org: "Musyawarah Mahasiswa 2025 — IKM Fasilkom UI",
+            period: "Apr 2025",
+            desc: null,
+          },
+          {
+            role: "Advokasi dan Kesejahteraan Mahasiswa",
+            org: "BEM Fasilkom UI",
+            period: "Aug 2024 – Mar 2025",
+            desc: 'PIC of "Sahabat Mahasiswa" — a program dedicated to advocating student affairs.',
+          },
+          {
+            role: "Formulation Team Member",
+            org: "Ikatan Alumni Sang Timur (IAST)",
+            period: "Nov 2023 – 2025",
+            desc: "Selecting candidates across 10 batches for new chairman. Leading hearings for chairman election and constitution amendment across 35 batches.",
+          },
+          {
+            role: "Moderator",
+            org: "KawalPemilu.org",
+            period: "Feb – Mar 2024",
+            desc: "Uploaded 280+ and verified 300+ C1 polling station reports during the 2024 general election.",
+          },
+          {
+            role: "Komisi Pengawasan",
+            org: "DPM Fasilkom UI",
+            period: "Oct 2023 – Feb 2024",
+            desc: null,
+          },
+          {
+            role: "Operations Team Member",
+            org: "ANGIN · Goto Impact Foundation",
+            period: "Jul 2023",
+            desc: "Operational staff at Pre-Innovation Day 2023 at Tokopedia Tower — 50+ attendees including green investors, ambassadors, and government officers.",
+          },
+          {
+            role: "Mentor — Dasar-Dasar Pemrograman 0",
+            org: "Fasilkom UI",
+            period: "Aug – Sep 2023",
+            desc: "Collaboratively mentored 3 individuals on Python fundamentals.",
+          },
+          {
+            role: "Human Resources Officer",
+            org: "BETIS Fasilkom UI",
+            period: "Nov 2022 – May 2023",
+            desc: "Selected 18 candidates for academic and teaching team. Established a healthy work environment for teaching personnel.",
+          },
+          {
+            role: "Head of Student Legislative Organization (MPK)",
+            org: "SMA Katolik Sang Timur, Jakarta",
+            period: "2021 – 2022",
+            desc: "Led 18-member organization ensuring transparency and accountability of 40+ OSIS management members. Launched #MPKBergerak campaign and implemented a real-time reporting system for 300+ school members.",
+          },
+          {
+            role: "Education Staff — Student Council (OSIS)",
+            org: "SMA Katolik Sang Timur, Jakarta",
+            period: "2019 – 2021",
+            desc: "Managed educational programs including competition announcements, wall magazine curation, and the \"Little Einstein\" Instagram quiz.",
+          },
+          {
+            role: "Junior Video Journalist",
+            org: "SMA Katolik Sang Timur, Jakarta",
+            period: "Oct 2019",
+            desc: "Recorded and edited video coverage of ST Cup XVI: Constellation.",
+          },
+        ].map(({ role, org, period, desc }) => (
+          <div class="flex gap-5 py-4 group">
+            <div class="w-1 rounded-full bg-border shrink-0 self-stretch"></div>
+            <div class="flex-1 min-w-0">
+              <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
+                <span class="text-sm font-semibold text-ink group-hover:text-primary-dark transition-colors">{role}</span>
+                <span class="text-xs text-ink/30 shrink-0">{period}</span>
               </div>
+              <div class="text-xs font-medium text-ink/50 mt-0.5">{org}</div>
+              {desc && <div class="text-xs text-ink/40 mt-1.5 leading-relaxed">{desc}</div>}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-
-      <!-- Past -->
-      <div>
-        <div class="text-xs font-bold uppercase tracking-widest text-ink/30 mb-1 pb-2 border-b border-border">Past</div>
-        <div class="divide-y divide-border">
-          {[
-            {
-              role: "Advokasi dan Kesejahteraan Mahasiswa",
-              org: "BEM Fasilkom UI",
-              period: "Aug 2024 – Mar 2025",
-              desc: 'PIC of "Sahabat Mahasiswa" — a program dedicated to advocating student affairs.',
-            },
-            {
-              role: "Moderator",
-              org: "KawalPemilu.org",
-              period: "Feb – Mar 2024",
-              desc: "Uploaded 280+ and verified 300+ C1 polling station reports during the 2024 general election.",
-            },
-            {
-              role: "Komisi Pengawasan",
-              org: "DPM Fasilkom UI",
-              period: "Oct 2023 – Feb 2024",
-              desc: null,
-            },
-            {
-              role: "Operations Team Member",
-              org: "ANGIN · Goto Impact Foundation",
-              period: "Jul 2023",
-              desc: "Operational staff at Pre-Innovation Day 2023 at Tokopedia Tower — 50+ attendees including green investors, ambassadors, and government officers.",
-            },
-            {
-              role: "Mentor — Dasar-Dasar Pemrograman 0",
-              org: "Fasilkom UI",
-              period: "Aug – Sep 2023",
-              desc: "Collaboratively mentored 3 individuals on Python fundamentals.",
-            },
-            {
-              role: "Human Resources Officer",
-              org: "BETIS Fasilkom UI",
-              period: "Nov 2022 – May 2023",
-              desc: "Selected 18 candidates for academic and teaching team. Established a healthy work environment for teaching personnel.",
-            },
-            {
-              role: "Head of Student Legislative Organization (MPK)",
-              org: "SMA Katolik Sang Timur, Jakarta",
-              period: "2021 – 2022",
-              desc: "Led 18-member organization ensuring transparency and accountability of 40+ OSIS management members. Launched #MPKBergerak campaign and implemented a real-time reporting system for 300+ school members.",
-            },
-            {
-              role: "Education Staff — Student Council (OSIS)",
-              org: "SMA Katolik Sang Timur, Jakarta",
-              period: "2019 – 2021",
-              desc: "Managed educational programs including competition announcements, wall magazine curation, and the \"Little Einstein\" Instagram quiz.",
-            },
-            {
-              role: "Junior Video Journalist",
-              org: "SMA Katolik Sang Timur, Jakarta",
-              period: "Oct 2019",
-              desc: "Recorded and edited video coverage of ST Cup XVI: Constellation.",
-            },
-          ].map(({ role, org, period, desc }) => (
-            <div class="flex gap-5 py-4 group">
-              <div class="w-1 rounded-full bg-border shrink-0 self-stretch"></div>
-              <div class="flex-1 min-w-0">
-                <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
-                  <span class="text-sm font-semibold text-ink group-hover:text-primary-dark transition-colors">{role}</span>
-                  <span class="text-xs text-ink/30 shrink-0">{period}</span>
-                </div>
-                <div class="text-xs font-medium text-ink/50 mt-0.5">{org}</div>
-                {desc && <div class="text-xs text-ink/40 mt-1.5 leading-relaxed">{desc}</div>}
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   </section>
