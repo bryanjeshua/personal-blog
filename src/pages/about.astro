@@ -115,6 +115,14 @@ const timeline = [
     tags: ["Consulting", "Project Lead"],
     highlight: true,
   },
+  {
+    year: "Jan – Mar 2026",
+    title: "Project Management Office",
+    subtitle: "Superbank · Seasonal",
+    description: "Conducted as part of the Breakthrough Leadership Project under Young Leaders for Indonesia by McKinsey & Company.",
+    tags: ["PMO", "YLI", "McKinsey"],
+    highlight: true,
+  },
 ];
 ---
 
@@ -145,6 +153,182 @@ const timeline = [
     </div>
   </section>
 
+  <!-- Education -->
+  <section class="py-16 px-5 bg-surface-warm border-y border-border">
+    <div class="max-w-3xl mx-auto">
+      <span class="text-xs font-bold uppercase tracking-widest text-primary-dark">Academic Background</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mt-2 tracking-tight mb-2">Education</h2>
+      <svg class="w-16 h-4 mb-10" viewBox="0 0 64 16" fill="none">
+        <path d="M2 9 Q9 2 16 10 Q23 16 30 6 Q37 0 44 10 Q51 15 58 7 L62 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" class="text-primary"/>
+      </svg>
+
+      <div class="divide-y divide-border">
+        <!-- UI -->
+        <div class="flex gap-6 py-10 first:pt-0">
+          <div class="w-1 shrink-0 rounded-full bg-primary-dark self-stretch"></div>
+          <div class="flex-1 min-w-0">
+            <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+              <h3 class="font-display text-2xl font-bold text-ink">Universitas Indonesia</h3>
+              <span class="text-xs font-bold uppercase tracking-widest text-ink/40 shrink-0">Sep 2022 – 2026</span>
+            </div>
+            <div class="text-sm font-medium text-ink/70 mt-1">Bachelor of Computer Science · Faculty of Computer Science</div>
+            <div class="mt-3 inline-flex items-center text-xs font-semibold text-primary-dark bg-primary-dark/8 px-2.5 py-1 rounded-full">GPA 3.89 / 4.00</div>
+            <div class="mt-5">
+              <div class="text-xs font-bold uppercase tracking-widest text-ink/40 mb-3">Courses completed</div>
+              <div class="flex flex-wrap gap-2">
+                {[
+                  "Calculus 1 & 2","Discrete Math 1 & 2","Linear Algebra","Probability & Statistics",
+                  "Introduction to Digital System","Introduction to Computer Organization",
+                  "Foundation of Programming 1 & 2","Data Structure & Algorithm",
+                  "Operating System","Platform Based Programming","Advanced Programming",
+                  "Database","Data Science & Foundations of AI"
+                ].map(course => (
+                  <span class="text-xs px-2.5 py-1 rounded-full border border-border text-ink/60">{course}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NTU -->
+        <div class="flex gap-6 py-10">
+          <div class="w-1 shrink-0 rounded-full bg-primary self-stretch"></div>
+          <div class="flex-1 min-w-0">
+            <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+              <h3 class="font-display text-2xl font-bold text-ink">Nanyang Technological University Singapore</h3>
+              <span class="text-xs font-bold uppercase tracking-widest text-ink/40 shrink-0">Jul 2025</span>
+            </div>
+            <div class="text-sm font-medium text-ink/70 mt-1">INSPIRASI-NTU Summer Program 2025</div>
+            <div class="text-sm text-ink/60 mt-0.5">Sustainability: Advances in Indonesia and Singapore</div>
+            <div class="mt-3 inline-flex items-center text-xs font-semibold text-primary-dark bg-primary-dark/8 px-2.5 py-1 rounded-full">LPDP Scholarship · SGD 5,000</div>
+            <div class="mt-5">
+              <div class="text-xs font-bold uppercase tracking-widest text-ink/40 mb-3">Topics covered</div>
+              <div class="flex flex-wrap gap-2">
+                {["Smart City","Renewable Energy","Circular Economy"].map(topic => (
+                  <span class="text-xs px-2.5 py-1 rounded-full border border-border text-ink/60">{topic}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Slider -->
+  <section class="border-b border-border overflow-hidden">
+    <div class="max-w-3xl mx-auto px-5 pt-16 pb-6">
+      <span class="text-xs font-bold uppercase tracking-widest text-primary-dark">By the Numbers</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mt-2 tracking-tight mb-2">Impact</h2>
+      <svg class="w-16 h-4 mb-0" viewBox="0 0 64 16" fill="none">
+        <path d="M2 9 Q9 2 16 10 Q23 16 30 6 Q37 0 44 10 Q51 15 58 7 L62 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" class="text-primary"/>
+      </svg>
+    </div>
+
+    <div id="impact-slider" class="relative select-none" style="touch-action: pan-y;">
+      <!-- Track -->
+      <div id="impact-track" class="flex transition-transform duration-500 ease-in-out" style="will-change: transform;">
+        <!-- Slide 1 -->
+        <div class="impact-slide min-w-full flex flex-col items-center justify-center text-center px-10 py-20">
+          <div class="font-display text-8xl md:text-9xl font-bold text-primary-dark leading-none">$18K</div>
+          <div class="text-xl font-semibold text-ink mt-6">Preseed funding</div>
+          <div class="text-sm text-ink/60 mt-3 max-w-xs">Secured for Klaussa from UI Incubate, Google for AI Startups & NVIDIA Inception</div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="impact-slide min-w-full flex flex-col items-center justify-center text-center px-10 py-20">
+          <div class="font-display text-8xl md:text-9xl font-bold text-primary-dark leading-none">$49K+</div>
+          <div class="text-xl font-semibold text-ink mt-6">Partnerships secured</div>
+          <div class="text-sm text-ink/60 mt-3 max-w-xs">10+ institutional agreements as VP Business Growth at RISTEK Fasilkom UI</div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="impact-slide min-w-full flex flex-col items-center justify-center text-center px-10 py-20">
+          <div class="font-display text-8xl md:text-9xl font-bold text-primary-dark leading-none">800+</div>
+          <div class="text-xl font-semibold text-ink mt-6">Competition participants</div>
+          <div class="text-sm text-ink/60 mt-3 max-w-xs">Datathon 2024 — largest student-led data competition in the country</div>
+        </div>
+        <!-- Slide 4 -->
+        <div class="impact-slide min-w-full flex flex-col items-center justify-center text-center px-10 py-20">
+          <div class="font-display text-8xl md:text-9xl font-bold text-primary-dark leading-none">1 mo</div>
+          <div class="text-xl font-semibold text-ink mt-6">The foundation</div>
+          <div class="text-sm text-ink/60 mt-3 max-w-sm">Got a previously immobile humanoid robot walking in just one month — the foundation that carried the team to compete internationally at FIRA World Cup.</div>
+        </div>
+        <!-- Slide 5 -->
+        <div class="impact-slide min-w-full flex flex-col items-center justify-center text-center px-10 py-20">
+          <div class="font-display text-8xl md:text-9xl font-bold text-primary-dark leading-none">620+</div>
+          <div class="text-xl font-semibold text-ink mt-6">Pieces of content</div>
+          <div class="text-sm text-ink/60 mt-3 max-w-xs">Created across multiple brands during high school — ideation, design, copy</div>
+        </div>
+        <!-- Slide 6 -->
+        <div class="impact-slide min-w-full flex flex-col items-center justify-center text-center px-10 py-20">
+          <div class="font-display text-8xl md:text-9xl font-bold text-primary-dark leading-none">3.89</div>
+          <div class="text-xl font-semibold text-ink mt-6">GPA / 4.00</div>
+          <div class="text-sm text-ink/60 mt-3 max-w-xs">Bachelor of Computer Science, Universitas Indonesia</div>
+        </div>
+        <!-- Slide 7 -->
+        <div class="impact-slide min-w-full flex flex-col items-center justify-center text-center px-10 py-20">
+          <div class="font-display text-8xl md:text-9xl font-bold text-primary-dark leading-none">7×</div>
+          <div class="text-xl font-semibold text-ink mt-6">Competition wins</div>
+          <div class="text-sm text-ink/60 mt-3 max-w-xs">National & international awards including McKinsey YLI Wave 17 and Gemastik Gold</div>
+        </div>
+      </div>
+
+      <!-- Prev / Next arrows -->
+      <button id="impact-prev" aria-label="Previous" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full border border-border bg-white/80 text-ink hover:bg-white transition z-10">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 14L6 9l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button id="impact-next" aria-label="Next" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full border border-border bg-white/80 text-ink hover:bg-white transition z-10">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7 4l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <!-- Dots -->
+    <div id="impact-dots" class="flex justify-center gap-2 pb-10">
+    </div>
+  </section>
+
+  <script>
+    const track = document.getElementById('impact-track') as HTMLElement;
+    const dotsContainer = document.getElementById('impact-dots') as HTMLElement;
+    const slides = track.querySelectorAll('.impact-slide');
+    const total = slides.length;
+    let current = 0;
+
+    // Build dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'w-2 h-2 rounded-full transition-all duration-300 ' + (i === 0 ? 'bg-primary-dark w-5' : 'bg-border');
+      dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function goTo(index: number) {
+      current = (index + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dotsContainer.querySelectorAll('button').forEach((dot, i) => {
+        dot.className = 'rounded-full transition-all duration-300 ' + (i === current ? 'w-5 h-2 bg-primary-dark' : 'w-2 h-2 bg-border');
+      });
+    }
+
+    document.getElementById('impact-prev')!.addEventListener('click', () => goTo(current - 1));
+    document.getElementById('impact-next')!.addEventListener('click', () => goTo(current + 1));
+
+    // Keyboard
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') goTo(current - 1);
+      if (e.key === 'ArrowRight') goTo(current + 1);
+    });
+
+    // Touch swipe
+    let touchStartX = 0;
+    const slider = document.getElementById('impact-slider') as HTMLElement;
+    slider.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    slider.addEventListener('touchend', (e) => {
+      const delta = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(delta) > 40) goTo(delta > 0 ? current + 1 : current - 1);
+    }, { passive: true });
+  </script>
+
   <!-- Timeline -->
   <section class="py-16 px-5 bg-surface-warm border-y border-border">
     <div class="max-w-3xl mx-auto">
@@ -155,6 +339,142 @@ const timeline = [
       </svg>
 
       <Timeline items={timeline} />
+    </div>
+  </section>
+
+  <!-- Achievements -->
+  <section class="py-16 px-5 border-b border-border">
+    <div class="max-w-3xl mx-auto">
+      <span class="text-xs font-bold uppercase tracking-widest text-primary-dark">Recognition</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mt-2 tracking-tight mb-2">Achievements</h2>
+      <svg class="w-16 h-4 mb-10" viewBox="0 0 64 16" fill="none">
+        <path d="M2 9 Q9 2 16 10 Q23 16 30 6 Q37 0 44 10 Q51 15 58 7 L62 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" class="text-primary"/>
+      </svg>
+
+      <!-- My Wins -->
+      <div class="mb-10">
+        <div class="text-xs font-bold uppercase tracking-widest text-ink/30 mb-1 pb-2 border-b border-border">My Wins</div>
+        <div class="divide-y divide-border">
+          {[
+            { rank: "01", scope: "INTL", title: "Top 20 AI Impact Challenge — Microsoft Elevate", year: "2026" },
+            { rank: "02", scope: "NATL", title: "Top 5 AI Incubation for Public Sector — British Embassy Jakarta · UK-Indonesia Tech Hub", year: "2026", note: "Kalana Consulting" },
+            { rank: "03", scope: "NATL", title: "3rd Winner Student Category — GAMESEED Gamedev Competition & Incubation 2025", year: "2025" },
+            { rank: "04", scope: "NATL", title: "Semifinalist — Youth-Tech Challenge by Indosat × Twimbit 2024", year: "2024" },
+            { rank: "05", scope: "NATL", title: "Gold Medalist (1st Winner) Software Development — GEMASTIK 2024", year: "2024" },
+            { rank: "06", scope: "INTL", title: "Finalist + Top 10 — StudentxCEOs International Business Case Competition", year: "2024" },
+            { rank: "07", scope: "INTL", title: "Finalist + Top 6 — International Ganesha Business Case Competition", year: "2024" },
+            { rank: "08", scope: "NATL", title: "1st Runner Up — ShARE UI Business Plan Competition 2023/2024", year: "2024" },
+            { rank: "09", scope: "NATL", title: "1st Winner — 18th Management Exposed, Faculty of Economics UI", year: "2023" },
+            { rank: "10", scope: "INTL", title: "Grandfinalist — Global Business Environment Case Challenge 2023 by 180DC UI", year: "2023" },
+            { rank: "11", scope: "NATL", title: "RISTEK — Datacamp Scholarship", year: "2023" },
+            { rank: "12", scope: "NATL", title: "1st Runner Up — StartUp & Pitching Competition, Tanoto Future Leader Business Acumen", year: "2023" },
+            { rank: "13", scope: "NATL", title: "1st Winner — Business Plan Competition I/O Fest 2023, Universitas Tarumanegara", year: "2023" },
+          ].map(({ rank, scope, title, year, note }) => (
+            <div class="flex items-start gap-3 py-3.5 group">
+              <span class="text-xs font-mono text-ink/25 shrink-0 pt-0.5 w-5">{rank}</span>
+              <span class={`text-[10px] font-bold px-1.5 py-0.5 rounded shrink-0 mt-0.5 ${scope === "INTL" ? "bg-primary-dark text-white" : "border border-primary-dark text-primary-dark"}`}>{scope}</span>
+              <span class="flex-1 text-sm text-ink group-hover:text-primary-dark transition-colors leading-snug">
+                {title}
+                {note && <span class="ml-2 text-xs text-ink/40">· {note}</span>}
+              </span>
+              <span class="text-xs text-ink/30 shrink-0 pt-0.5">{year}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- With Gladiatos -->
+      <div>
+        <div class="text-xs font-bold uppercase tracking-widest text-ink/30 mb-1 pb-2 border-b border-border">With Gladiatos</div>
+        <div class="divide-y divide-border">
+          {[
+            { title: "Top 8 Soccerbot — Daihatsu GIIAS 2025, Grandmaster Category", year: "2025" },
+            { title: "Top 8 Soccerbot — Daihatsu GIIAS 2025, Master Category", year: "2025" },
+            { title: "Top 16 Soccerbot — Technocorner UGM by BEM FT UGM", year: "2025" },
+          ].map(({ title, year }) => (
+            <div class="flex items-start gap-3 py-3.5 group">
+              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded shrink-0 mt-0.5 border border-ink/20 text-ink/40">TEAM</span>
+              <span class="flex-1 text-sm text-ink group-hover:text-primary-dark transition-colors leading-snug">{title}</span>
+              <span class="text-xs text-ink/30 shrink-0 pt-0.5">{year}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Speaking -->
+  <section class="py-16 px-5 bg-surface-warm border-b border-border">
+    <div class="max-w-3xl mx-auto">
+      <span class="text-xs font-bold uppercase tracking-widest text-primary-dark">On Stage</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mt-2 tracking-tight mb-2">Speaking</h2>
+      <svg class="w-16 h-4 mb-10" viewBox="0 0 64 16" fill="none">
+        <path d="M2 9 Q9 2 16 10 Q23 16 30 6 Q37 0 44 10 Q51 15 58 7 L62 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" class="text-primary"/>
+      </svg>
+
+      <div class="divide-y divide-border">
+        {[
+          {
+            role: "SPEAKER",
+            title: "From Academic Projects to Real World Impact: Delivering Solutions, Driving Impact",
+            context: "with Felix Nugroho (CTO Ismaya) & Budhi Riyanta (CMO Medi-Call)",
+            date: "Jun 4, 2026",
+            url: null,
+          },
+          {
+            role: "SPEAKER",
+            title: "Navigating the AI Era: Literacy, Industry Perspective, and Implementation",
+            context: "Universitas YARSI · 106 participants",
+            date: "May 21, 2026",
+            url: "https://www.yarsi.ac.id/navigating-the-ai-era-literacy-industry-perspective-and-implementation",
+          },
+          {
+            role: "SPEAKER",
+            title: "Understanding AI Development in Fasilkom UI",
+            context: "AFS Bina Antarbudaya",
+            date: "2026",
+            url: "https://www.instagram.com/p/DROz45jk3R3/",
+          },
+          {
+            role: "SPEAKER",
+            title: "Lexin Spinoff — Klaussa, Dies Natalis Fasilkom UI",
+            context: "UI Center for Legal Informatics launch · Fasilkom UI",
+            date: "Nov 26, 2025",
+            url: "https://megapolitan.antaranews.com/berita/466629/fasilkom-ui-luncurkan-lexin-perkuat-riset-ai-di-bidang-hukum",
+          },
+          {
+            role: "CONTRIBUTOR",
+            title: "Workshop Persiapan Proposal UI Incubate",
+            context: "Prepared material · Presented by Salma Kurnia Dewi",
+            date: "Mar 11, 2025",
+            url: "https://www.instagram.com/p/DVfu8UcgV2U/",
+          },
+          {
+            role: "JUDGE",
+            title: "Judge — Business Plan Competition, Young Entrepreneur Days FMIPA UI 2024",
+            context: "BEM FMIPA UI",
+            date: "Nov 2024",
+            url: null,
+          },
+        ].map(({ role, title, context, date, url }) => (
+          <div class="flex items-start gap-3 py-4 group">
+            <span class={`text-[10px] font-bold px-1.5 py-0.5 rounded shrink-0 mt-0.5 whitespace-nowrap ${
+              role === "SPEAKER" ? "bg-primary-dark text-white" :
+              role === "JUDGE" ? "border border-primary-dark text-primary-dark" :
+              "border border-ink/20 text-ink/40"
+            }`}>{role}</span>
+            <div class="flex-1 min-w-0">
+              {url ? (
+                <a href={url} target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-ink hover:text-primary-dark transition-colors leading-snug underline underline-offset-2 decoration-border hover:decoration-primary-dark">{title}</a>
+              ) : (
+                <div class="text-sm font-medium text-ink group-hover:text-primary-dark transition-colors leading-snug">{title}</div>
+              )}
+              <div class="text-xs text-ink/40 mt-0.5">{context}</div>
+            </div>
+            <span class="text-xs text-ink/30 shrink-0 pt-0.5 whitespace-nowrap">{date}</span>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
