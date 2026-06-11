@@ -300,7 +300,7 @@ const base = import.meta.env.BASE_URL;
           <div class="text-xs font-bold uppercase tracking-widest text-primary-dark mb-4">Skills & Tools</div>
           <div class="space-y-3">
             {[
-              { label: "Product", items: ["Jira", "Confluence", "Amplitude", "Figma", "Postman", "Notion", "EDD", "A/B Testing"] },
+              { label: "Product", items: ["Jira", "Confluence", "Amplitude", "Figma", "Notion", "PRD", "EDD", "OKR", "Roadmap", "User Research", "A/B Testing"] },
               { label: "AI / Agentic", items: ["LangChain", "LangFuse", "Gemini", "Agentic Systems", "Prompt Engineering", "On-premise LLM"] },
               { label: "ML / Data", items: ["PyTorch", "Scikit-Learn", "Pandas", "NumPy", "BigQuery", "RL Simulation"] },
               { label: "Infra", items: ["GCP", "Docker", "PostgreSQL", "Redis", "CI/CD"] },
@@ -388,13 +388,15 @@ const base = import.meta.env.BASE_URL;
                 <div class="text-sm font-medium text-ink/60 mt-0.5">Kapellmeister (Founder / CEO) · AI Legal-Tech Startup</div>
                 <ul class="mt-3 space-y-1.5">
                   {[
-                    "AI co-pilot for lawyers used by 200+ corporate lawyers, institutions, and students — turning weeks of contract analysis into 15 minutes",
+                    "Conducted user discovery with tens of lawyers, law students, and legal NGOs — identified data security, accuracy, and removal of menial tasks as core needs; translated findings directly into product priorities",
+                    "Grew from 0 to 200+ users (B2B institutions, legal startups, B2C law students) within 2 months; B2B clients include paying institutions and legal consultancies",
+                    "Owned product roadmap using impact/effort scoring and OKRs; aligned engineering and sales/marketing teams on priorities each sprint",
+                    "Iterated based on user feedback — removed a complex pipeline feature after adoption stalled, and decomposed one monolithic feature into atomic features after discovering users lacked technical familiarity",
                     "Architected an agentic AI system combining multi-step contract review agents, tool-calling agents for legal research, and an orchestrator/sub-agent architecture using LangChain and Gemini, with on-premise model hosting for data privacy compliance",
-                    "Built a document extraction pipeline processing 300,000+ court decisions, contracts, and regulations — covering PDF parsing, OCR, and a custom chunking strategy optimised for legal document structure",
-                    "Designed system architecture for hundreds of concurrent users: rate limiting, Redis caching layer, GCP infrastructure, and PostgreSQL with multi-tenant isolation",
-                    "Established accuracy benchmarks for clause extraction and latency evaluation to drive iterative model improvement and set measurable quality thresholds",
-                    "Implemented AI cost observability via LangFuse: cost-per-query tracking, token cost per user/feature, and spend thresholds to keep inference costs predictable as usage scaled",
-                    "Built engineering from zero to one — hired and shaped a 7-person team, defined the full tech stack, established CI/CD pipelines, and instilled a code review culture from day one",
+                    "Built a document extraction pipeline processing 300,000+ court decisions, contracts, and regulations — PDF parsing, OCR, and custom chunking optimised for legal document structure",
+                    "Designed system architecture for hundreds of concurrent users: rate limiting, Redis caching layer, GCP, and PostgreSQL with multi-tenant isolation",
+                    "Implemented AI cost observability via LangFuse: cost-per-query tracking, token cost per user/feature, and spend thresholds",
+                    "Built engineering from zero to one — hired and shaped a 7-person team, defined the full tech stack, established CI/CD and code review culture",
                     "Secured Rp300M preseed from UI Incubate; accepted into Google for AI Startups and NVIDIA Inception Program",
                   ].map(bullet => (
                     <li class="flex items-start gap-2 text-sm text-ink/70 leading-relaxed">
@@ -404,7 +406,7 @@ const base = import.meta.env.BASE_URL;
                   ))}
                 </ul>
                 <div class="flex flex-wrap gap-1.5 mt-3">
-                  {["Agentic AI", "LangChain", "LangFuse", "Gemini", "GCP", "Redis", "0→1 Engineering", "Google for Startups", "NVIDIA Inception"].map(t => (
+                  {["User Discovery", "OKR", "Roadmap", "Agentic AI", "LangChain", "LangFuse", "GCP", "0→1 Engineering", "Google for Startups", "NVIDIA Inception"].map(t => (
                     <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-primary-dark/8 text-primary-dark">{t}</span>
                   ))}
                 </div>
@@ -450,7 +452,7 @@ const base = import.meta.env.BASE_URL;
                 <div class="text-sm font-medium text-ink/60 mt-0.5">Product Management — Pricing · Internship</div>
                 <ul class="mt-3 space-y-1.5">
                   {[
-                    "Initiated and owned an ML-based pricing initiative for flight-tied insurance and train products — wrote the EDD, defined feature specs, collaborated with data scientists on model selection, and defined success metrics; delivered a Rp250M/month revenue lift",
+                    "Led the ML-based pricing initiative for flight-tied insurance and train products as the driving PM — wrote the EDD, defined feature specs, aligned data scientists on model selection, and owned success metrics; team effort delivered a Rp250M/month revenue lift",
                     "Led a deployed RL-inspired user segmentation system: owned system design and drove cross-stakeholder implementation across product, data science, and engineering. Segmentation signals included purchase history, price sensitivity, and multi-product past transactions — enabling customised pricing per user to enhance stickiness and margin",
                     "Initiated a behavioral economics nudge strategy backed by A/B testing — implemented urgency cues, social proof, anchoring, and loss aversion framing. Key nudge: surfacing price trajectory data showing inventory cost spikes in the last 30 days before departure to drive early purchase",
                     "Conducted 5-month competitor price analysis, aggregating pricing data across X days before departure to improve coverage and reduce cost — enabling the team to dynamically respond to competitor pricing movements",
