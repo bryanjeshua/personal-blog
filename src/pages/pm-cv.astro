@@ -49,10 +49,7 @@ const base = import.meta.env.BASE_URL;
             <path d="M2 9 Q12 2 22 10 Q32 16 42 6 Q52 0 62 10 Q72 15 82 7 L94 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" class="text-primary"/>
           </svg>
           <p class="mt-5 text-base text-ink/70 max-w-xl leading-relaxed">
-            PM intern at <strong class="text-ink">tiket.com</strong> (pricing × ML × behavioral economics).
-            Founder of <strong class="text-ink">Klaussa</strong> — AI legal-tech backed by Google, NVIDIA &amp; UI Incubate.
-            CS @ <strong class="text-ink">Universitas Indonesia</strong>, GPA 3.89.
-            YLI Wave 17 Awardee. 16+ competition wins.
+            I build products that work, people love, and change how things get done. From shipping ML-driven pricing at <strong class="text-ink">tiket.com</strong> that lifted Rp250M/month in revenue, to spinning off my professor's research lab (Lexin) into <strong class="text-ink">Klaussa</strong>, an AI legal-tech platform used by 200+ lawyers and backed by Google, NVIDIA &amp; UI Incubate, I turn vision into products that are economically real and built to last. Was a CS student at <strong class="text-ink">Universitas Indonesia</strong>. YLI Wave 17. 16+ wins.
           </p>
         </div>
         <div class="flex flex-col gap-2 md:text-right shrink-0">
@@ -76,6 +73,123 @@ const base = import.meta.env.BASE_URL;
       </div>
     </div>
   </section>
+
+  <!-- Deliverables Viewer -->
+  <section class="border-b border-border bg-surface-warm no-print">
+    <div class="max-w-5xl mx-auto px-5 py-10">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-primary-dark">Work Samples</span>
+          <h2 class="font-display text-2xl font-bold text-ink mt-1 tracking-tight">Deliverables</h2>
+        </div>
+        <a id="deliverable-open" href="#" target="_blank" rel="noopener noreferrer"
+          class="hidden md:flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-ink/50 hover:text-primary-dark border border-border hover:border-primary-dark rounded px-3 py-1.5 transition-colors">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          Open in new tab
+        </a>
+      </div>
+
+      <!-- Desktop: two-panel viewer -->
+      <div class="hidden md:flex gap-0 border border-border rounded-sm overflow-hidden" style="height: 680px;">
+        <!-- Left: doc list -->
+        <div class="w-64 shrink-0 border-r border-border overflow-y-auto bg-surface" id="doc-list">
+          {[
+            { title: "FiskalLink AI Proposal",      file: "[BAHASA INDONESIA] FiskalLink-AI-Proposal.pdf",    type: "AI Proposal",         org: "Kalana",     lang: "ID" },
+            { title: "MetaSDI AI — Bappenas 2025",  file: "[BAHASA INDONESIA] MetaSDI-AI-Bappenas-2025.pdf", type: "AI Proposal",         org: "Kalana",     lang: "ID" },
+            { title: "PANTAU",                     file: "[BAHASA INDONESIA] PANTAU.pdf",                  type: "Research Proposal",   org: "Kalana",     lang: "ID" },
+            { title: "SIGAPID — Project Brief",     file: "[BAHASA INDONESIA] SIGAPID-ProjectBrief.pdf",     type: "Research Proposal",   org: "Kalana",     lang: "ID" },
+            { title: "ClaimSight",                  file: "[ENGLISH] ClaimSight.pdf",                        type: "Problem & Solution",  org: "Kalana",     lang: "EN" },
+            { title: "InvestAlign",                 file: "[ENGLISH] InvestAlign.pdf",                       type: "Problem & Solution",  org: "Kalana",     lang: "EN" },
+            { title: "SIGAPID",                     file: "[ENGLISH] SIGAPID.pdf",                           type: "Problem & Solution",  org: "Kalana",     lang: "EN" },
+            { title: "Ragamaya VR",                 file: "[BAHASA INDONESIA] Ragamaya.pdf",                 type: "Research Proposal",   org: "Ragamaya",   lang: "ID" },
+            { title: "NAVIGO",                      file: "[INDONESIA] NAVIGO.pdf",                          type: "Problem & Solution",  org: "Individual", lang: "ID" },
+            { title: "Blugrow",                     file: "[ENGLISH] Blugrow.pdf",                           type: "Business Consultancy",org: "Individual", lang: "EN" },
+          ].map(({ title, file, type, org, lang }, i) => (
+            <button
+              class={`doc-item w-full text-left px-4 py-3 border-b border-border transition-colors hover:bg-surface-warm ${i === 0 ? "bg-primary-dark/5 border-l-2 border-l-primary-dark" : ""}`}
+              data-file={`${base}deliverables/${encodeURIComponent(file)}`}
+              data-index={i}
+            >
+              <div class="flex items-start justify-between gap-1.5 mb-1">
+                <span class="text-xs font-semibold text-ink leading-snug">{title}</span>
+                <span class={`text-[8px] font-bold px-1 py-0.5 rounded shrink-0 ${lang === "EN" ? "bg-primary-dark text-white" : "border border-primary-dark text-primary-dark"}`}>{lang}</span>
+              </div>
+              <div class="text-[10px] text-ink/40">{org}</div>
+              <div class="text-[9px] text-ink/30 mt-0.5">{type}</div>
+            </button>
+          ))}
+        </div>
+
+        <!-- Right: iframe preview -->
+        <div class="flex-1 bg-ink/5 flex flex-col">
+          <iframe
+            id="doc-preview"
+            src={`${base}deliverables/${encodeURIComponent("[BAHASA INDONESIA] FiskalLink-AI-Proposal.pdf")}`}
+            class="flex-1 w-full h-full border-0"
+            title="Document preview"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- Mobile: simple list -->
+      <div class="md:hidden space-y-2">
+        {[
+          { title: "FiskalLink AI Proposal",      file: "[BAHASA INDONESIA] FiskalLink-AI-Proposal.pdf",    type: "AI Proposal",         org: "Kalana Consulting",  lang: "ID" },
+          { title: "MetaSDI AI — Bappenas 2025",  file: "[BAHASA INDONESIA] MetaSDI-AI-Bappenas-2025.pdf", type: "AI Proposal",         org: "Kalana Consulting",  lang: "ID" },
+          { title: "PANTAU",                     file: "[BAHASA INDONESIA] PANTAU.pdf",                  type: "Research Proposal",   org: "Kalana Consulting",  lang: "ID" },
+          { title: "SIGAPID — Project Brief",     file: "[BAHASA INDONESIA] SIGAPID-ProjectBrief.pdf",     type: "Research Proposal",   org: "Kalana Consulting",  lang: "ID" },
+          { title: "ClaimSight",                  file: "[ENGLISH] ClaimSight.pdf",                        type: "Problem & Solution",  org: "Kalana Consulting",  lang: "EN" },
+          { title: "InvestAlign",                 file: "[ENGLISH] InvestAlign.pdf",                       type: "Problem & Solution",  org: "Kalana Consulting",  lang: "EN" },
+          { title: "SIGAPID",                     file: "[ENGLISH] SIGAPID.pdf",                           type: "Problem & Solution",  org: "Kalana Consulting",  lang: "EN" },
+          { title: "Ragamaya VR",                 file: "[BAHASA INDONESIA] Ragamaya.pdf",                 type: "Research Proposal",   org: "Ragamaya VR",        lang: "ID" },
+          { title: "NAVIGO",                      file: "[INDONESIA] NAVIGO.pdf",                          type: "Problem & Solution",  org: "Individual",         lang: "ID" },
+          { title: "Blugrow",                     file: "[ENGLISH] Blugrow.pdf",                           type: "Business Consultancy",org: "Individual",         lang: "EN" },
+        ].map(({ title, file, type, org, lang }) => (
+          <a
+            href={`${base}deliverables/${encodeURIComponent(file)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-between gap-3 p-3 border border-border rounded-sm hover:border-primary-dark transition-colors"
+          >
+            <div class="flex-1 min-w-0">
+              <div class="text-sm font-semibold text-ink truncate">{title}</div>
+              <div class="text-[10px] text-ink/40 mt-0.5">{org} · {type}</div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <span class={`text-[9px] font-bold px-1.5 py-0.5 rounded ${lang === "EN" ? "bg-primary-dark text-white" : "border border-primary-dark text-primary-dark"}`}>{lang}</span>
+              <svg class="w-4 h-4 text-ink/30" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const items = document.querySelectorAll('.doc-item') as NodeListOf<HTMLButtonElement>;
+    const preview = document.getElementById('doc-preview') as HTMLIFrameElement;
+    const openBtn = document.getElementById('deliverable-open') as HTMLAnchorElement;
+
+    items.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const file = btn.dataset.file as string;
+        // update iframe
+        preview.src = file;
+        // update open link
+        openBtn.href = file;
+        // update active styles
+        items.forEach((b) => {
+          b.classList.remove('bg-primary-dark/5', 'border-l-2', 'border-l-primary-dark');
+        });
+        btn.classList.add('bg-primary-dark/5', 'border-l-2', 'border-l-primary-dark');
+      });
+    });
+
+    // set initial open link
+    if (items.length > 0) {
+      openBtn.href = (items[0] as HTMLButtonElement).dataset.file as string;
+    }
+  </script>
 
   <!-- Impact Numbers -->
   <section class="border-b border-border bg-surface-warm">
@@ -128,10 +242,12 @@ const base = import.meta.env.BASE_URL;
           <div class="text-xs font-bold uppercase tracking-widest text-primary-dark mb-4">Skills & Tools</div>
           <div class="space-y-3">
             {[
-              { label: "Product", items: ["Jira", "Confluence", "Amplitude", "Figma", "Postman", "Notion"] },
-              { label: "Technical", items: ["Python", "JavaScript", "Java", "Dart"] },
-              { label: "ML / Data", items: ["PyTorch", "Scikit-Learn", "NumPy", "Pandas", "BigQuery"] },
-              { label: "Infra", items: ["Google Cloud", "Docker", "PostgreSQL"] },
+              { label: "Product", items: ["Jira", "Confluence", "Amplitude", "Figma", "Postman", "Notion", "EDD", "A/B Testing"] },
+              { label: "AI / Agentic", items: ["LangChain", "LangFuse", "Gemini", "Agentic Systems", "Prompt Engineering", "On-premise LLM"] },
+              { label: "ML / Data", items: ["PyTorch", "Scikit-Learn", "Pandas", "NumPy", "BigQuery", "RL Simulation"] },
+              { label: "Infra", items: ["GCP", "Docker", "PostgreSQL", "Redis", "CI/CD"] },
+              { label: "Languages", items: ["Python", "JavaScript", "Java", "Dart"] },
+              { label: "Domain", items: ["Pricing Strategy", "Behavioral Economics", "Legal-Tech", "Game Industry", "B2B SaaS"] },
             ].map(({ label, items }) => (
               <div>
                 <div class="text-[10px] font-bold uppercase tracking-widest text-ink/30 mb-1.5">{label}</div>
@@ -208,16 +324,20 @@ const base = import.meta.env.BASE_URL;
               <div class="w-1 rounded-full bg-primary-dark shrink-0 self-stretch"></div>
               <div class="flex-1 pb-2">
                 <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <h3 class="text-base font-bold text-ink">Klaussa Indonesia</h3>
+                  <a href="https://klaussa.com" target="_blank" rel="noopener noreferrer" class="text-base font-bold text-ink hover:text-primary-dark transition-colors">Klaussa Indonesia</a>
                   <span class="text-xs text-ink/40 shrink-0">Jul 2025 – Present</span>
                 </div>
                 <div class="text-sm font-medium text-ink/60 mt-0.5">Kapellmeister (Founder / CEO) · AI Legal-Tech Startup</div>
                 <ul class="mt-3 space-y-1.5">
                   {[
-                    "Building an AI co-pilot for lawyers — turning weeks of contract analysis into 15 minutes",
+                    "AI co-pilot for lawyers used by 200+ corporate lawyers, institutions, and students — turning weeks of contract analysis into 15 minutes",
+                    "Architected an agentic AI system combining multi-step contract review agents, tool-calling agents for legal research, and an orchestrator/sub-agent architecture using LangChain and Gemini, with on-premise model hosting for data privacy compliance",
+                    "Built a document extraction pipeline processing 300,000+ court decisions, contracts, and regulations — covering PDF parsing, OCR, and a custom chunking strategy optimised for legal document structure",
+                    "Designed system architecture for hundreds of concurrent users: rate limiting, Redis caching layer, GCP infrastructure, and PostgreSQL with multi-tenant isolation",
+                    "Established accuracy benchmarks for clause extraction and latency evaluation to drive iterative model improvement and set measurable quality thresholds",
+                    "Implemented AI cost observability via LangFuse: cost-per-query tracking, token cost per user/feature, and spend thresholds to keep inference costs predictable as usage scaled",
+                    "Built engineering from zero to one — hired and shaped a 7-person team, defined the full tech stack, established CI/CD pipelines, and instilled a code review culture from day one",
                     "Secured Rp300M preseed from UI Incubate; accepted into Google for AI Startups and NVIDIA Inception Program",
-                    "Defined product roadmap, led go-to-market strategy, and managed end-to-end engineering delivery",
-                    "Presented Klaussa spinoff at Dies Natalis Fasilkom UI alongside the UI Center for Legal Informatics launch",
                   ].map(bullet => (
                     <li class="flex items-start gap-2 text-sm text-ink/70 leading-relaxed">
                       <span class="mt-2 w-1 h-1 rounded-full bg-primary-dark shrink-0"></span>
@@ -226,7 +346,7 @@ const base = import.meta.env.BASE_URL;
                   ))}
                 </ul>
                 <div class="flex flex-wrap gap-1.5 mt-3">
-                  {["Product Strategy", "0→1", "AI/ML", "Google for Startups", "NVIDIA Inception"].map(t => (
+                  {["Agentic AI", "LangChain", "LangFuse", "Gemini", "GCP", "Redis", "0→1 Engineering", "Google for Startups", "NVIDIA Inception"].map(t => (
                     <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-primary-dark/8 text-primary-dark">{t}</span>
                   ))}
                 </div>
@@ -238,14 +358,14 @@ const base = import.meta.env.BASE_URL;
               <div class="w-1 rounded-full bg-primary-dark shrink-0 self-stretch"></div>
               <div class="flex-1 pb-2">
                 <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <h3 class="text-base font-bold text-ink">Superbank</h3>
+                  <a href="https://www.superbank.id/" target="_blank" rel="noopener noreferrer" class="text-base font-bold text-ink hover:text-primary-dark transition-colors">Superbank</a>
                   <span class="text-xs text-ink/40 shrink-0">Jan – Mar 2026</span>
                 </div>
                 <div class="text-sm font-medium text-ink/60 mt-0.5">Project Management Office · Seasonal</div>
                 <ul class="mt-3 space-y-1.5">
                   {[
                     "Conducted as part of the Breakthrough Leadership Project under Young Leaders for Indonesia by McKinsey & Company",
-                    "Operated within Superbank's PMO function as part of a cohort-based leadership initiative",
+                    "Implemented strategy to enhance platform adoption and drove internal communications to achieve SuperWays of Working as the company scaled rapidly",
                   ].map(bullet => (
                     <li class="flex items-start gap-2 text-sm text-ink/70 leading-relaxed">
                       <span class="mt-2 w-1 h-1 rounded-full bg-primary-dark shrink-0"></span>
@@ -266,16 +386,16 @@ const base = import.meta.env.BASE_URL;
               <div class="w-1 rounded-full bg-primary-dark shrink-0 self-stretch"></div>
               <div class="flex-1 pb-2">
                 <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <h3 class="text-base font-bold text-ink">tiket.com</h3>
+                  <a href="https://www.tiket.com" target="_blank" rel="noopener noreferrer" class="text-base font-bold text-ink hover:text-primary-dark transition-colors">tiket.com</a>
                   <span class="text-xs text-ink/40 shrink-0">Mar – Sep 2025</span>
                 </div>
                 <div class="text-sm font-medium text-ink/60 mt-0.5">Product Management — Pricing · Internship</div>
                 <ul class="mt-3 space-y-1.5">
                   {[
-                    "Worked on dynamic pricing strategy at one of Indonesia's largest OTA platforms",
-                    "Applied machine learning, data science, and behavioral economics to pricing decisions at scale",
-                    "Bridged data science output with product requirements — translating model results into user-facing features",
-                    "Gained hands-on experience with Jira, Amplitude, and cross-functional PM workflows",
+                    "Initiated and owned an ML-based pricing initiative for flight-tied insurance and train products — wrote the EDD, defined feature specs, collaborated with data scientists on model selection, and defined success metrics; delivered a Rp250M/month revenue lift",
+                    "Led a deployed RL-inspired user segmentation system: owned system design and drove cross-stakeholder implementation across product, data science, and engineering. Segmentation signals included purchase history, price sensitivity, and multi-product past transactions — enabling customised pricing per user to enhance stickiness and margin",
+                    "Initiated a behavioral economics nudge strategy backed by A/B testing — implemented urgency cues, social proof, anchoring, and loss aversion framing. Key nudge: surfacing price trajectory data showing inventory cost spikes in the last 30 days before departure to drive early purchase",
+                    "Conducted 5-month competitor price analysis, aggregating pricing data across X days before departure to improve coverage and reduce cost — enabling the team to dynamically respond to competitor pricing movements",
                   ].map(bullet => (
                     <li class="flex items-start gap-2 text-sm text-ink/70 leading-relaxed">
                       <span class="mt-2 w-1 h-1 rounded-full bg-primary-dark shrink-0"></span>
@@ -284,7 +404,7 @@ const base = import.meta.env.BASE_URL;
                   ))}
                 </ul>
                 <div class="flex flex-wrap gap-1.5 mt-3">
-                  {["Pricing Strategy", "Behavioral Economics", "ML × Product", "Jira", "Amplitude"].map(t => (
+                  {["ML Pricing", "Behavioral Economics", "A/B Testing", "RL-inspired Segmentation", "EDD", "Jira", "Amplitude"].map(t => (
                     <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-primary-dark/8 text-primary-dark">{t}</span>
                   ))}
                 </div>
@@ -296,13 +416,15 @@ const base = import.meta.env.BASE_URL;
               <div class="w-1 rounded-full bg-primary shrink-0 self-stretch"></div>
               <div class="flex-1 pb-2">
                 <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <h3 class="text-base font-bold text-ink">Kalana Consulting</h3>
+                  <a href="https://kalana.consulting" target="_blank" rel="noopener noreferrer" class="text-base font-bold text-ink hover:text-primary-dark transition-colors">Kalana Consulting</a>
                   <span class="text-xs text-ink/40 shrink-0">Jan 2026 – Present</span>
                 </div>
                 <div class="text-sm font-medium text-ink/60 mt-0.5">Project Lead · Full-time Remote</div>
                 <ul class="mt-3 space-y-1.5">
                   {[
                     "Leading client consulting projects end-to-end in a fully remote capacity",
+                    "Advised a game studio on product development strategy — covering roadmap prioritisation, go-to-market approach, and how to structure the development process from concept to launch",
+                    "Facilitated connections with investors and industry partners from Garena, Xbox (Microsoft), and Publicis",
                     "Top 5 in AI Incubation for Public Sector — British Embassy Jakarta × UK-Indonesia Tech Hub",
                   ].map(bullet => (
                     <li class="flex items-start gap-2 text-sm text-ink/70 leading-relaxed">
@@ -312,8 +434,39 @@ const base = import.meta.env.BASE_URL;
                   ))}
                 </ul>
                 <div class="flex flex-wrap gap-1.5 mt-3">
-                  {["Consulting", "Project Management", "AI Strategy"].map(t => (
+                  {["Consulting", "Product Strategy", "Game Industry", "Investor Relations", "AI Strategy"].map(t => (
                     <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-primary/10 text-primary-dark">{t}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Gladiatos */}
+            <div class="flex gap-5">
+              <div class="w-1 rounded-full bg-border shrink-0 self-stretch"></div>
+              <div class="flex-1 pb-2">
+                <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <a href="https://www.gladiatosui.com/" target="_blank" rel="noopener noreferrer" class="text-base font-bold text-ink hover:text-primary-dark transition-colors">Gladiatos Robotics — Universitas Indonesia</a>
+                  <span class="text-xs text-ink/40 shrink-0">2024 – 2025</span>
+                </div>
+                <div class="text-sm font-medium text-ink/60 mt-0.5">Managing Director</div>
+                <ul class="mt-3 space-y-1.5">
+                  {[
+                    "Owned the product and technical roadmap for humanoid robot development — got a previously immobile humanoid walking within 1 month, laying the foundation that carried the team to international competition",
+                    "Managed people and ops end-to-end: team structure, workload, mentorship coordination with SNUST Korea, and keeping the team alive through an extremely resource-constrained period with minimal sponsorship",
+                    "Shipped 9 iterations of robocar robots as hands-on onboarding projects for new members — maintaining a continuous delivery rhythm despite budget constraints",
+                    "Led the team to compete in 3 national competitions, achieving Top 16 and Top 8 placements — a turnaround from a near-disbanded state",
+                    "Oversaw development of 3D environment simulations for humanoid robots and computer vision models",
+                  ].map(bullet => (
+                    <li class="flex items-start gap-2 text-sm text-ink/70 leading-relaxed">
+                      <span class="mt-2 w-1 h-1 rounded-full bg-border shrink-0"></span>
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+                <div class="flex flex-wrap gap-1.5 mt-3">
+                  {["Technical Roadmap", "Team Turnaround", "Computer Vision", "Resource-constrained Delivery", "Robotics"].map(t => (
+                    <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full border border-border text-ink/50">{t}</span>
                   ))}
                 </div>
               </div>
@@ -324,15 +477,15 @@ const base = import.meta.env.BASE_URL;
               <div class="w-1 rounded-full bg-border shrink-0 self-stretch"></div>
               <div class="flex-1 pb-2">
                 <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <h3 class="text-base font-bold text-ink">RISTEK Fasilkom UI</h3>
+                  <a href="https://www.ristek.cs.ui.ac.id/" target="_blank" rel="noopener noreferrer" class="text-base font-bold text-ink hover:text-primary-dark transition-colors">RISTEK Fasilkom UI</a>
                   <span class="text-xs text-ink/40 shrink-0">2024</span>
                 </div>
-                <div class="text-sm font-medium text-ink/60 mt-0.5">Vice Director of Business Growth · PIC Datathon 2024</div>
+                <div class="text-sm font-medium text-ink/60 mt-0.5">Vice Director of Business Growth, Business Growth and Partnerships Student Interest Group</div>
                 <ul class="mt-3 space-y-1.5">
                   {[
-                    "Established 10+ institutional partnerships and new revenue streams, acquired and onboarded by Faculty boards",
-                    "As PIC of Datathon 2024: secured Rp850M+ in sponsorship, grew participation 162% to 315+ teams",
-                    "Transformed Datathon into the largest student-led data competition in Indonesia",
+                    "Directed the partnership development process by identifying key stakeholders, negotiating terms, and securing agreements with 10+ institutions — resulting in partnerships valued at over $49,000. Managed contract timelines, deliverables, and stakeholder communications to ensure successful project outcomes.",
+                    "Spearheaded a collaborative initiative between Fakultas Ilmu Komputer UI, University of Sussex, and Monash University, fostering academic exchange and stronger ties between leading universities.",
+                    "Managed the end-to-end transformation of an internal student data competition — project planning, scope definition, resource allocation, and risk management — resulting in the largest student-led data competition in the country. Oversaw 800+ participants from UI, ITB, UGM, Oxford, NTU, NUS, UoFT, and Monash.",
                   ].map(bullet => (
                     <li class="flex items-start gap-2 text-sm text-ink/70 leading-relaxed">
                       <span class="mt-2 w-1 h-1 rounded-full bg-border shrink-0"></span>
@@ -357,7 +510,7 @@ const base = import.meta.env.BASE_URL;
           <div class="flex gap-5">
             <div class="w-1 rounded-full bg-border shrink-0 self-stretch"></div>
             <div>
-              <div class="text-base font-bold text-ink">Ragamaya VR — Co Principal Researcher</div>
+              <a href="https://ragamayavr.com" target="_blank" rel="noopener noreferrer" class="text-base font-bold text-ink hover:text-primary-dark transition-colors">Ragamaya VR</a><span class="text-base font-bold text-ink"> — Co Principal Researcher</span>
               <div class="text-sm font-medium text-ink/60 mt-0.5">Universitas Indonesia × SMPK St. Ignatius Loyola, Labuan Bajo · 2025 – Present</div>
               <ul class="mt-3 space-y-1.5">
                 {[
