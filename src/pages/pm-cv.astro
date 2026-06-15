@@ -383,7 +383,7 @@ const base = import.meta.env.BASE_URL;
               <div class="flex-1 pb-2">
                 <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                   <a href="https://klaussa.com" target="_blank" rel="noopener noreferrer" class="text-base font-bold text-ink hover:text-primary-dark transition-colors">Klaussa Indonesia</a>
-                  <span class="text-xs text-ink/40 shrink-0">2025 – 2026</span>
+                  <span class="text-xs text-ink/40 shrink-0">Aug 2025 – Jun 2026</span>
                 </div>
                 <div class="text-sm font-medium text-ink/60 mt-0.5">CEO / Product Principal · AI Legal-Tech Startup</div>
                 <ul class="mt-3 space-y-1.5">
@@ -413,6 +413,36 @@ const base = import.meta.env.BASE_URL;
               </div>
             </div>
 
+            {/* Kalana */}
+            <div class="flex gap-5">
+              <div class="w-1 rounded-full bg-primary-dark shrink-0 self-stretch"></div>
+              <div class="flex-1 pb-2">
+                <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <a href="https://kalana.consulting" target="_blank" rel="noopener noreferrer" class="text-base font-bold text-ink hover:text-primary-dark transition-colors">Kalana Consulting</a>
+                  <span class="text-xs text-ink/40 shrink-0">Jan – Jun 2026</span>
+                </div>
+                <div class="text-sm font-medium text-ink/60 mt-0.5">Project Lead · Full-time Remote</div>
+                <ul class="mt-3 space-y-1.5">
+                  {[
+                    "Leading client consulting projects end-to-end; Top 5 in AI Incubation for Public Sector — British Embassy Jakarta × UK-Indonesia Tech Hub",
+                    "Advised game studios on product development strategy — for one studio, helped secure Rp300M in funding by presenting to venture capital and government auditors, ensuring regulatory compliance, economic viability, and roadmap alignment with the invested budget",
+                    "For another studio, realigned the product roadmap, economic viability strategy, market sizing, vertical-slice requirements, and storytelling narrative, contributing to a game development competition win",
+                    "Facilitated connections with investors and industry partners from Garena, Xbox (Microsoft), Sony, and Tencent, as well as media and community partners, distributors, and publicists",
+                  ].map(bullet => (
+                    <li class="flex items-start gap-2 text-sm text-ink/70 leading-relaxed">
+                      <span class="mt-2 w-1 h-1 rounded-full bg-primary-dark shrink-0"></span>
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+                <div class="flex flex-wrap gap-1.5 mt-3">
+                  {["Consulting", "Product Strategy", "Game Industry", "Investor Relations", "AI Strategy"].map(t => (
+                    <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-primary-dark/8 text-primary-dark">{t}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
             {/* Superbank PMO */}
             <div class="flex gap-5">
               <div class="w-1 rounded-full bg-primary-dark shrink-0 self-stretch"></div>
@@ -424,8 +454,8 @@ const base = import.meta.env.BASE_URL;
                 <div class="text-sm font-medium text-ink/60 mt-0.5">Project Management Office · Seasonal</div>
                 <ul class="mt-3 space-y-1.5">
                   {[
-                    "Conducted as part of the Breakthrough Leadership Project under Young Leaders for Indonesia by McKinsey & Company",
-                    "Implemented strategy to enhance platform adoption and drove internal communications to achieve SuperWays of Working as the company scaled rapidly",
+                    "Worked under the Project Management Office (PMO) and was mentored by a McKinsey Associate, presenting directly to the CHRO while coordinating cross-functionally with HR and 11 department representatives",
+                    "Conducted qualitative data gathering across departments to identify adoption barriers and organizational needs, then translated findings into strategy and internal communications to drive platform adoption and reinforce SuperWays of Working as the company scaled rapidly",
                   ].map(bullet => (
                     <li class="flex items-start gap-2 text-sm text-ink/70 leading-relaxed">
                       <span class="mt-2 w-1 h-1 rounded-full bg-primary-dark shrink-0"></span>
@@ -471,43 +501,13 @@ const base = import.meta.env.BASE_URL;
               </div>
             </div>
 
-            {/* Kalana */}
-            <div class="flex gap-5">
-              <div class="w-1 rounded-full bg-primary shrink-0 self-stretch"></div>
-              <div class="flex-1 pb-2">
-                <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <a href="https://kalana.consulting" target="_blank" rel="noopener noreferrer" class="text-base font-bold text-ink hover:text-primary-dark transition-colors">Kalana Consulting</a>
-                  <span class="text-xs text-ink/40 shrink-0">2026</span>
-                </div>
-                <div class="text-sm font-medium text-ink/60 mt-0.5">Project Lead · Full-time Remote</div>
-                <ul class="mt-3 space-y-1.5">
-                  {[
-                    "Leading client consulting projects end-to-end in a fully remote capacity",
-                    "Advised a game studio on product development strategy — covering roadmap prioritisation, go-to-market approach, and how to structure the development process from concept to launch",
-                    "Facilitated connections with investors and industry partners from Garena, Xbox (Microsoft), and a publicist",
-                    "Top 5 in AI Incubation for Public Sector — British Embassy Jakarta × UK-Indonesia Tech Hub",
-                  ].map(bullet => (
-                    <li class="flex items-start gap-2 text-sm text-ink/70 leading-relaxed">
-                      <span class="mt-2 w-1 h-1 rounded-full bg-primary shrink-0"></span>
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
-                <div class="flex flex-wrap gap-1.5 mt-3">
-                  {["Consulting", "Product Strategy", "Game Industry", "Investor Relations", "AI Strategy"].map(t => (
-                    <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-primary/10 text-primary-dark">{t}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
             {/* Gladiatos */}
             <div class="flex gap-5">
               <div class="w-1 rounded-full bg-border shrink-0 self-stretch"></div>
               <div class="flex-1 pb-2">
                 <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                   <a href="https://www.gladiatosui.com/" target="_blank" rel="noopener noreferrer" class="text-base font-bold text-ink hover:text-primary-dark transition-colors">Gladiatos Robotics — Universitas Indonesia</a>
-                  <span class="text-xs text-ink/40 shrink-0">2024 – 2025</span>
+                  <span class="text-xs text-ink/40 shrink-0">Jun 2024 – Jun 2025</span>
                 </div>
                 <div class="text-sm font-medium text-ink/60 mt-0.5">Managing Director</div>
                 <ul class="mt-3 space-y-1.5">
@@ -538,7 +538,7 @@ const base = import.meta.env.BASE_URL;
               <div class="flex-1 pb-2">
                 <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                   <a href="https://www.ristek.cs.ui.ac.id/" target="_blank" rel="noopener noreferrer" class="text-base font-bold text-ink hover:text-primary-dark transition-colors">RISTEK Fasilkom UI</a>
-                  <span class="text-xs text-ink/40 shrink-0">2024</span>
+                  <span class="text-xs text-ink/40 shrink-0">Jan – Dec 2024</span>
                 </div>
                 <div class="text-sm font-medium text-ink/60 mt-0.5">Vice Director of Business Growth, Business Growth and Partnerships Student Interest Group</div>
                 <ul class="mt-3 space-y-1.5">
@@ -571,14 +571,14 @@ const base = import.meta.env.BASE_URL;
             <div class="w-1 rounded-full bg-border shrink-0 self-stretch"></div>
             <div>
               <a href="https://ragamayavr.com" target="_blank" rel="noopener noreferrer" class="text-base font-bold text-ink hover:text-primary-dark transition-colors">Ragamaya VR</a><span class="text-base font-bold text-ink"> — Co Principal Researcher</span>
-              <div class="text-sm font-medium text-ink/60 mt-0.5">Universitas Indonesia × SMPK St. Ignatius Loyola, Labuan Bajo · 2025 – 2026</div>
+              <div class="text-sm font-medium text-ink/60 mt-0.5">Universitas Indonesia × SMPK St. Ignatius Loyola, Labuan Bajo · Jun 2025 – Jun 2026</div>
               <ul class="mt-3 space-y-1.5">
                 {[
-                  "Pitched and secured Rp150,000,000 in research funding",
-                  "Leading research direction for a VR experience preserving NTT folk stories — built with Unity & Blender",
-                  "Participatory qualitative methodology alongside local community members in Labuan Bajo",
-                  "Led institutional talks with Kepala Dinas Pemuda, Pendidikan, dan Olahraga Manggarai Barat",
-                  "Target: advancing Technology Readiness Level from TRL 4 to TRL 5",
+                  "Pitched and secured Rp150,000,000 in research funding to build a VR learning experience preserving NTT local folklore, leading the project from concept definition through deployment planning with Unity and Blender",
+                  "Established end-to-end product discovery and requirement gathering by collecting local folklore source material, structuring FGDs, defining user and learning requirements, and translating qualitative insights into product direction, feature scope, and content priorities",
+                  "Planned field execution for site visits to a remote island community, including local-dialect considerations, stakeholder engagement, and operational preparation, while building cross-faculty collaboration across Faculty of Cultural Sciences, Faculty of Computer Science, and Faculty of Engineering",
+                  "Guided the project as product lead by setting roadmap, milestones, scope, and delivery priorities; aligned researchers, creators, and external stakeholders, managed tradeoffs across content, UX, and technical feasibility, and built partnerships with Dinas Pemuda, Pendidikan, dan Olahraga while advancing the project from TRL 4 to TRL 5",
+                  "Successfully deployed the VR experience in a frontier school in one of Indonesia's poorest provinces, creating learning impact for 300+ students and teachers",
                 ].map(bullet => (
                   <li class="flex items-start gap-2 text-sm text-ink/70 leading-relaxed">
                     <span class="mt-2 w-1 h-1 rounded-full bg-border shrink-0"></span>
@@ -654,7 +654,7 @@ const base = import.meta.env.BASE_URL;
     <div class="cv-entry">
       <div class="cv-entry-header">
         <span class="cv-org"><a href="https://klaussa.com">Klaussa Indonesia</a></span>
-        <span class="cv-date">2025 – 2026</span>
+        <span class="cv-date">Aug 2025 – Jun 2026</span>
       </div>
       <div class="cv-role">CEO / Product Principal · AI Legal-Tech Startup</div>
       <ul>
@@ -671,12 +671,42 @@ const base = import.meta.env.BASE_URL;
 
     <div class="cv-entry">
       <div class="cv-entry-header">
+        <span class="cv-org"><a href="https://ragamayavr.com">Ragamaya VR</a> — Universitas Indonesia x SMPK St. Ignatius Loyola, Labuan Bajo</span>
+        <span class="cv-date">Jun 2025 – Jun 2026</span>
+      </div>
+      <div class="cv-role">Co Principal Researcher</div>
+      <ul>
+        <li>Pitched and secured Rp150,000,000 in research funding to build a VR learning experience preserving NTT local folklore, leading the project from concept definition through deployment planning with Unity and Blender</li>
+        <li>Established end-to-end product discovery and requirement gathering by collecting local folklore source material, structuring FGDs, defining user and learning requirements, and translating qualitative insights into product direction, feature scope, and content priorities</li>
+        <li>Planned field execution for site visits to a remote island community, including local-dialect considerations, stakeholder engagement, and operational preparation, while building cross-faculty collaboration across Faculty of Cultural Sciences, Faculty of Computer Science, and Faculty of Engineering</li>
+        <li>Guided the project as product lead by setting roadmap, milestones, scope, and delivery priorities; aligned researchers, creators, and external stakeholders, managed tradeoffs across content, UX, and technical feasibility, and built partnerships with Dinas Pemuda, Pendidikan, dan Olahraga while advancing the project from TRL 4 to TRL 5</li>
+        <li>Successfully deployed the VR experience in a frontier school in one of Indonesia's poorest provinces, creating learning impact for 300+ students and teachers</li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-org"><a href="https://kalana.consulting">Kalana Consulting</a></span>
+        <span class="cv-date">Jan – Jun 2026</span>
+      </div>
+      <div class="cv-role">Project Lead · Full-time Remote</div>
+      <ul>
+        <li>Leading client consulting projects end-to-end; Top 5 in AI Incubation for Public Sector — British Embassy Jakarta x UK-Indonesia Tech Hub</li>
+        <li>Advised game studios on product development strategy — for one studio, helped secure Rp300M in funding by presenting to venture capital and government auditors, ensuring regulatory compliance, economic viability, and roadmap alignment with the invested budget</li>
+        <li>For another studio, realigned the product roadmap, economic viability strategy, market sizing, vertical-slice requirements, and storytelling narrative, contributing to a game development competition win</li>
+        <li>Facilitated connections with investors and industry partners from Garena, Xbox (Microsoft), Sony, and Tencent, as well as media and community partners, distributors, and publicists</li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
         <span class="cv-org"><a href="https://www.superbank.id/">Superbank</a></span>
         <span class="cv-date">Jan – Mar 2026</span>
       </div>
       <div class="cv-role">Project Management Office · Seasonal (YLI x McKinsey Breakthrough Leadership Project)</div>
       <ul>
-        <li>Implemented strategy to enhance platform adoption and drove internal communications to achieve SuperWays of Working as the company scaled rapidly</li>
+        <li>Worked under the Project Management Office (PMO) and was mentored by a McKinsey Associate, presenting directly to the CHRO while coordinating cross-functionally with HR and 11 department representatives</li>
+        <li>Conducted qualitative data gathering across departments to identify adoption barriers and organizational needs, then translated findings into strategy and internal communications to drive platform adoption and reinforce SuperWays of Working as the company scaled rapidly</li>
       </ul>
     </div>
 
@@ -696,22 +726,8 @@ const base = import.meta.env.BASE_URL;
 
     <div class="cv-entry">
       <div class="cv-entry-header">
-        <span class="cv-org"><a href="https://kalana.consulting">Kalana Consulting</a></span>
-        <span class="cv-date">2026</span>
-      </div>
-      <div class="cv-role">Project Lead · Full-time Remote</div>
-      <ul>
-        <li>Leading client consulting projects end-to-end in a fully remote capacity</li>
-        <li>Advised a game studio on product development strategy — roadmap prioritisation, go-to-market approach, and structuring the development process from concept to launch</li>
-        <li>Facilitated connections with investors and industry partners from Garena, Xbox (Microsoft), and a publicist</li>
-        <li>Top 5 in AI Incubation for Public Sector — British Embassy Jakarta x UK-Indonesia Tech Hub</li>
-      </ul>
-    </div>
-
-    <div class="cv-entry">
-      <div class="cv-entry-header">
         <span class="cv-org"><a href="https://www.gladiatosui.com/">Gladiatos Robotics, Universitas Indonesia</a></span>
-        <span class="cv-date">2024 – 2025</span>
+        <span class="cv-date">Jun 2024 – Jun 2025</span>
       </div>
       <div class="cv-role">Managing Director</div>
       <ul>
@@ -724,25 +740,13 @@ const base = import.meta.env.BASE_URL;
     <div class="cv-entry">
       <div class="cv-entry-header">
         <span class="cv-org"><a href="https://www.ristek.cs.ui.ac.id/">RISTEK Fasilkom UI</a></span>
-        <span class="cv-date">2024</span>
+        <span class="cv-date">Jan – Dec 2024</span>
       </div>
       <div class="cv-role">Vice Director of Business Growth, Business Growth and Partnerships Student Interest Group · PIC Datathon 2024</div>
       <ul>
         <li>Directed partnership development with 10+ institutions — partnerships valued at over $49,000; managed contract timelines, deliverables, and stakeholder communications</li>
         <li>Spearheaded academic collaboration between Fasilkom UI, University of Sussex, and Monash University</li>
         <li>Managed end-to-end transformation of Datathon into the largest student-led data competition in Indonesia — 800+ participants from UI, ITB, UGM, Oxford, NTU, NUS, UoFT, and Monash</li>
-      </ul>
-    </div>
-
-    <div class="cv-entry">
-      <div class="cv-entry-header">
-        <span class="cv-org"><a href="https://ragamayavr.com">Ragamaya VR</a> — Universitas Indonesia x SMPK St. Ignatius Loyola, Labuan Bajo</span>
-        <span class="cv-date">2025 – 2026</span>
-      </div>
-      <div class="cv-role">Co Principal Researcher</div>
-      <ul>
-        <li>Pitched and secured Rp150,000,000 in research funding; leading research direction for a VR experience preserving NTT folk stories built with Unity and Blender</li>
-        <li>Led institutional talks with Kepala Dinas Pemuda, Pendidikan, dan Olahraga Manggarai Barat; target: advancing TRL from TRL 4 to TRL 5</li>
       </ul>
     </div>
 
