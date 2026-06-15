@@ -104,11 +104,11 @@
       page-break-inside: avoid;
     }
 
-    /* ── Skills grid ── */
+    /* ── Skills list ── */
     .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
       margin-top: 2px;
     }
     .skill-row { font-size: 8.5pt; }
@@ -116,13 +116,13 @@
 
     /* ── Achievements ── */
     .wins {
-      columns: 2;
-      column-gap: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
     }
     .win {
       font-size: 8.5pt;
-      margin-bottom: 2px;
-      break-inside: avoid;
+      margin-bottom: 0;
     }
     .win-scope { font-weight: 700; margin-right: 3px; }
 
@@ -154,7 +154,6 @@
   <!-- Header -->
   <div class="header">
     <h1>Bryan Jeshua</h1>
-    <div class="tagline">Product Manager &nbsp;·&nbsp; Builder &nbsp;·&nbsp; CS Graduate, Universitas Indonesia</div>
     <div class="contact">
       bryanjmt04@gmail.com &nbsp;|&nbsp;
       <a href="https://linkedin.com/in/bryanjeshua">linkedin.com/in/bryanjeshua</a> &nbsp;|&nbsp;
@@ -165,31 +164,49 @@
   </div>
   <hr />
 
-  <!-- Summary -->
-  <h2>Summary</h2>
-  <p style="font-size:9pt; margin-bottom:4px;">
-    I build products that work, people love, and change how things get done. From shipping ML-driven pricing at tiket.com that lifted Rp250M/month in revenue, to spinning off a university research lab into Klaussa — an AI legal-tech platform used by 200+ lawyers and backed by Google, NVIDIA, and UI Incubate — I turn vision into products that are economically real and built to last. YLI Wave 17 Awardee. 16+ competition wins nationally and internationally.
-  </p>
-
   <!-- Experience -->
   <h2>Experience</h2>
 
   <div class="entry">
     <div class="entry-header">
       <span class="entry-org"><a href="https://klaussa.com">Klaussa Indonesia</a></span>
-      <span class="entry-date">2025 – 2026</span>
+      <span class="entry-date">Aug 2025 – Jun 2026</span>
     </div>
     <div class="entry-role">CEO / Product Principal · AI Legal-Tech Startup</div>
     <ul>
-      <li>Conducted user discovery with <strong>tens of lawyers, law students, and legal NGOs</strong> — identified data security, accuracy, and removal of menial tasks as core needs; translated findings directly into product priorities</li>
-      <li>Grew from <strong>0 to 200+ users within 2 months</strong> (B2B: paying institutions, legal startups, legal consultancies; B2C: law students); owned roadmap using <strong>impact/effort scoring and OKRs</strong>, aligning engineering and sales/marketing teams</li>
-      <li>Iterated based on user feedback — <strong>removed a complex pipeline feature</strong> after adoption stalled; decomposed a monolithic feature into atomic features after discovering users lacked technical familiarity</li>
-      <li>Architected an <strong>agentic AI system</strong>: multi-step contract review agents, tool-calling agents for legal research, and orchestrator/sub-agent architecture using LangChain and Gemini with on-premise model hosting for data privacy compliance</li>
-      <li>Built a document extraction pipeline processing <strong>300,000+ court decisions, contracts, and regulations</strong> — PDF parsing, OCR, and custom chunking optimised for legal document structure</li>
-      <li>Designed system architecture for <strong>hundreds of concurrent users</strong>: rate limiting, Redis caching layer, GCP, and PostgreSQL with multi-tenant isolation</li>
-      <li>Implemented <strong>AI cost observability via LangFuse</strong>: cost-per-query tracking, token cost per user/feature, and spend thresholds</li>
-      <li>Built engineering from <strong>zero to one</strong> — hired and shaped a <strong>7-person team</strong>, defined the full tech stack, established CI/CD and code review culture</li>
-      <li>Secured <strong>Rp300M preseed</strong> from UI Incubate; accepted into <strong>Google for AI Startups</strong> and <strong>NVIDIA Inception Program</strong></li>
+      <li>Conducted user discovery with <strong>tens of lawyers, law students, and legal NGOs</strong>, identifying data security, accuracy, and removal of menial tasks as core needs; translated findings into roadmap priorities using <strong>impact/effort scoring and OKRs</strong> across engineering and sales/marketing</li>
+      <li>Grew from <strong>0 to 200+ users within 2 months</strong> across paying institutions, legal startups, legal consultancies, and law students, while iterating on feedback by <strong>removing a complex pipeline feature</strong> and decomposing a monolithic workflow into simpler atomic features</li>
+      <li>Architected an <strong>agentic AI system</strong> for contract review and legal research using LangChain and Gemini with orchestrator/sub-agent flows, on-premise model hosting for data privacy compliance, and <strong>AI cost observability via LangFuse</strong> for cost-per-query and spend-threshold tracking</li>
+      <li>Built a legal document extraction pipeline processing <strong>300,000+ court decisions, contracts, and regulations</strong> through PDF parsing, OCR, and custom chunking, and designed platform infrastructure for <strong>hundreds of concurrent users</strong> with rate limiting, Redis, GCP, PostgreSQL, and multi-tenant isolation</li>
+      <li>Built engineering from <strong>zero to one</strong> by hiring and shaping a <strong>7-person team</strong>, defining the tech stack, and establishing CI/CD and code review culture; secured <strong>Rp300M preseed</strong> from UI Incubate and earned acceptance into <strong>Google for AI Startups</strong> and <strong>NVIDIA Inception Program</strong></li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-org"><a href="https://ragamayavr.com">Ragamaya VR</a> — Universitas Indonesia x SMPK St. Ignatius Loyola, Labuan Bajo</span>
+      <span class="entry-date">Jun 2025 – Jun 2026</span>
+    </div>
+    <div class="entry-role">Co Principal Researcher</div>
+    <ul>
+      <li>Pitched and secured <strong>Rp150,000,000 in research funding</strong> to build a VR learning experience preserving NTT local folklore, leading the project from concept definition through deployment planning with Unity and Blender</li>
+      <li>Established end-to-end product discovery and requirement gathering by collecting local folklore source material, structuring <strong>FGDs</strong>, defining user and learning requirements, and translating qualitative insights into product direction, feature scope, and content priorities</li>
+      <li>Planned field execution for site visits to a <strong>remote island community</strong>, including local-dialect considerations, stakeholder engagement, and operational preparation, while building cross-faculty collaboration across <strong>Faculty of Cultural Sciences, Faculty of Computer Science, and Faculty of Engineering</strong></li>
+      <li>Guided the project as product lead by setting roadmap, milestones, scope, and delivery priorities; aligned researchers, creators, and external stakeholders, managed tradeoffs across content, UX, and technical feasibility, and built partnerships with <strong>Dinas Pemuda, Pendidikan, dan Olahraga</strong> while advancing the project from <strong>TRL 4 to TRL 5</strong></li>
+      <li>Successfully deployed the VR experience in a frontier school in one of Indonesia’s poorest provinces, creating learning impact for <strong>300+ students and teachers</strong></li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-org"><a href="https://kalana.consulting">Kalana Consulting</a></span>
+      <span class="entry-date">Jan – Jun 2026</span>
+    </div>
+    <div class="entry-role">Project Lead · Full-time Remote</div>
+    <ul>
+      <li>Leading client consulting projects end-to-end; <strong>Top 5 in AI Incubation for Public Sector</strong> — British Embassy Jakarta x UK-Indonesia Tech Hub</li>
+      <li>Advised game studios on product development strategy — for one studio, helped secure <strong>Rp300M in funding</strong> by presenting to venture capital and government auditors, ensuring regulatory compliance, economic viability, and roadmap alignment with the invested budget; for another, realigned the product roadmap, economic viability strategy, market sizing, vertical-slice requirements, and storytelling narrative, contributing to a <strong>game development competition win</strong></li>
+      <li>Facilitated connections with investors and industry partners from <strong>Garena, Xbox (Microsoft), Sony, Tencent</strong>, as well as media and community partners, distributors, and publicists</li>
     </ul>
   </div>
 
@@ -200,7 +217,8 @@
     </div>
     <div class="entry-role">Project Management Office · Seasonal (YLI x McKinsey Breakthrough Leadership Project)</div>
     <ul>
-      <li>Implemented strategy to enhance <strong>platform adoption</strong> and drove internal communications to achieve <strong>SuperWays of Working</strong> as the company scaled rapidly</li>
+      <li>Worked under the <strong>Project Management Office (PMO)</strong> and was mentored by a <strong>McKinsey Associate</strong>, presenting directly to the <strong>CHRO</strong> while coordinating cross-functionally with HR and <strong>11 department representatives</strong></li>
+      <li>Conducted <strong>qualitative data gathering</strong> across departments to identify adoption barriers and organizational needs, then translated findings into strategy and internal communications to drive <strong>platform adoption</strong> and reinforce <strong>SuperWays of Working</strong> as the company scaled rapidly</li>
     </ul>
   </div>
 
@@ -214,27 +232,14 @@
       <li>Led the <strong>ML-based pricing initiative</strong> for flight-tied insurance and train products as the driving PM — wrote EDD, defined feature specs, aligned data scientists on model selection, owned success metrics; team effort delivered <strong>Rp250M/month revenue lift</strong></li>
       <li>Led a deployed <strong>RL-inspired user segmentation system</strong>: owned system design and drove cross-stakeholder implementation using purchase history, price sensitivity, and multi-product past transactions to enable customised pricing per user</li>
       <li>Initiated a <strong>behavioral economics nudge strategy</strong> backed by A/B testing — urgency cues, social proof, anchoring, and loss aversion framing; key nudge surfaced price trajectory data showing cost spikes in the last 30 days before departure</li>
-      <li>Conducted <strong>5-month competitor price analysis</strong> aggregating data across days before departure to improve coverage and reduce cost, enabling dynamic competitor-aware pricing</li>
-    </ul>
-  </div>
-
-  <div class="entry">
-    <div class="entry-header">
-      <span class="entry-org"><a href="https://kalana.consulting">Kalana Consulting</a></span>
-      <span class="entry-date">2026</span>
-    </div>
-    <div class="entry-role">Project Lead · Full-time Remote</div>
-    <ul>
-      <li>Leading client consulting projects end-to-end; <strong>Top 5 in AI Incubation for Public Sector</strong> — British Embassy Jakarta x UK-Indonesia Tech Hub</li>
-      <li>Advised a game studio on product development strategy — roadmap prioritisation, go-to-market, and structuring development from concept to launch</li>
-      <li>Facilitated connections with investors and industry partners from <strong>Garena, Xbox (Microsoft), and a publicist</strong></li>
+      <li>Defined the <strong>competitor price scraping strategy</strong> to improve data quality in price comparisons between tiket.com and other OTAs, increasing scraping coverage by <strong>190%</strong> with only a <strong>10% increase in scraping budget</strong>, enhancing pricing competitiveness and inventory coverage</li>
     </ul>
   </div>
 
   <div class="entry">
     <div class="entry-header">
       <span class="entry-org"><a href="https://www.gladiatosui.com/">Gladiatos Robotics, Universitas Indonesia</a></span>
-      <span class="entry-date">2024 – 2025</span>
+      <span class="entry-date">Jun 2024 – Jun 2025</span>
     </div>
     <div class="entry-role">Managing Director</div>
     <ul>
@@ -247,25 +252,13 @@
   <div class="entry">
     <div class="entry-header">
       <span class="entry-org"><a href="https://www.ristek.cs.ui.ac.id/">RISTEK Fasilkom UI</a></span>
-      <span class="entry-date">2024</span>
+      <span class="entry-date">Jan – Dec 2024</span>
     </div>
     <div class="entry-role">Vice Director of Business Growth, Business Growth and Partnerships Student Interest Group · PIC Datathon 2024</div>
     <ul>
       <li>Directed partnership development with <strong>10+ institutions</strong> — partnerships valued at over <strong>$49,000</strong>; managed contract timelines, deliverables, and stakeholder communications</li>
       <li>Spearheaded academic collaboration between Fasilkom UI, <strong>University of Sussex, and Monash University</strong></li>
       <li>Managed end-to-end transformation of Datathon into the <strong>largest student-led data competition in Indonesia</strong> — <strong>800+ participants</strong> from UI, ITB, UGM, Oxford, NTU, NUS, UoFT, and Monash</li>
-    </ul>
-  </div>
-
-  <div class="entry">
-    <div class="entry-header">
-      <span class="entry-org"><a href="https://ragamayavr.com">Ragamaya VR</a> — Universitas Indonesia x SMPK St. Ignatius Loyola, Labuan Bajo</span>
-      <span class="entry-date">2025 – 2026</span>
-    </div>
-    <div class="entry-role">Co Principal Researcher</div>
-    <ul>
-      <li>Pitched and secured <strong>Rp150,000,000 in research funding</strong>; leading VR experience preserving NTT folk stories built with Unity and Blender</li>
-      <li>Led institutional talks with Kepala Dinas Pemuda, Pendidikan, dan Olahraga Manggarai Barat; advancing TRL from <strong>TRL 4 to TRL 5</strong></li>
     </ul>
   </div>
 
@@ -302,15 +295,15 @@
   <!-- Achievements -->
   <h2>Selected Achievements</h2>
   <div class="wins">
-    <div class="win"><span class="win-scope">[INTL]</span> Top 20 · Microsoft Elevate AI Impact Challenge (2026)</div>
-    <div class="win"><span class="win-scope">[NATL]</span> Top 5 · AI Incubation for Public Sector — British Embassy x UK-Indonesia Tech Hub (2026)</div>
     <div class="win"><span class="win-scope">[NATL]</span> Gold Medal · GEMASTIK 2024 Software Development (2024)</div>
-    <div class="win"><span class="win-scope">[INTL]</span> Finalist Top 10 · StudentxCEOs International Business Case (2024)</div>
-    <div class="win"><span class="win-scope">[INTL]</span> Finalist Top 6 · International Ganesha Business Case Competition (2024)</div>
-    <div class="win"><span class="win-scope">[NATL]</span> 1st Runner Up · ShARE UI Business Plan Competition (2024)</div>
     <div class="win"><span class="win-scope">[NATL]</span> 1st Winner · Management Exposed, FEB UI (2023)</div>
+    <div class="win"><span class="win-scope">[NATL]</span> 1st Runner Up · ShARE UI Business Plan Competition (2024)</div>
     <div class="win"><span class="win-scope">[NATL]</span> 1st Runner Up · Tanoto Future Leader Startup and Pitching (2023)</div>
-    <div class="win"><span class="win-scope">[INTL]</span> Young Leaders for Indonesia — Wave 17 Awardee, YLI Foundation (2025)</div>
+    <div class="win"><span class="win-scope">[NATL]</span> Young Leaders for Indonesia — Wave 17 Awardee, McKinsey &amp; Company x YLI Foundation (2025)</div>
+    <div class="win"><span class="win-scope">[NATL]</span> Top 5 · AI Incubation for Public Sector — British Embassy x UK-Indonesia Tech Hub (2026)</div>
+    <div class="win"><span class="win-scope">[INTL]</span> Finalist Top 6 · International Ganesha Business Case Competition (2024)</div>
+    <div class="win"><span class="win-scope">[INTL]</span> Finalist Top 10 · StudentxCEOs International Business Case (2024)</div>
+    <div class="win"><span class="win-scope">[INTL]</span> Top 20 · Microsoft Elevate AI Impact Challenge (2026)</div>
   </div>
 
 </body>
