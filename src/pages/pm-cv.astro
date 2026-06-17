@@ -1,0 +1,795 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="PM CV — Bryan Jeshua" description="Product Management portfolio and CV for Bryan Jeshua — tiket.com, Klaussa, Superbank, Universitas Indonesia.">
+
+  <!-- Print styles -->
+  <style>
+    @media print {
+      @page { margin: 0.55in 0.65in; size: A4; }
+
+      /* Hide nav, footer, all web sections */
+      nav, #sidebar, #mobile-nav, footer,
+      .no-print { display: none !important; }
+
+      /* Strip main margin added by Layout */
+      main { margin: 0 !important; padding: 0 !important; }
+
+      /* Hide all page sections, show only print CV */
+      main > *:not(#print-cv) { display: none !important; }
+
+      #print-cv {
+        display: block !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      /* Page break rules */
+      #print-cv .cv-entry { page-break-inside: avoid; }
+      #print-cv h2 { page-break-after: avoid; }
+      #print-cv ul { page-break-inside: avoid; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    #print-cv {
+      display: none;
+      font-family: 'Arial', 'Helvetica', sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.4;
+      color: #000;
+      background: #fff;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 36px 40px;
+    }
+
+    #print-cv h1 { font-size: 20pt; font-weight: 700; margin: 0 0 2px; letter-spacing: -0.3px; }
+    #print-cv .cv-tagline { font-size: 10pt; color: #444; margin: 0 0 6px; }
+    #print-cv .cv-contact { font-size: 9pt; color: #444; margin-bottom: 14px; }
+    #print-cv .cv-contact a { color: #444; text-decoration: none; }
+    #print-cv hr { border: none; border-top: 1.5px solid #000; margin: 10px 0 8px; }
+    #print-cv h2 { font-size: 10pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin: 14px 0 6px; border-bottom: 0.5px solid #ccc; padding-bottom: 2px; }
+    #print-cv .cv-entry { margin-bottom: 10px; }
+    #print-cv .cv-entry-header { display: flex; justify-content: space-between; align-items: baseline; }
+    #print-cv .cv-org { font-weight: 700; font-size: 10.5pt; }
+    #print-cv .cv-org a { color: #000; text-decoration: none; }
+    #print-cv .cv-date { font-size: 9pt; color: #555; white-space: nowrap; }
+    #print-cv .cv-role { font-size: 9.5pt; color: #333; margin: 1px 0 4px; font-style: italic; }
+    #print-cv ul { margin: 3px 0 0 0; padding-left: 14px; }
+    #print-cv ul li { margin-bottom: 2px; font-size: 9.5pt; color: #111; }
+    #print-cv .cv-skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px 16px; }
+    #print-cv .cv-skill-row { font-size: 9pt; }
+    #print-cv .cv-skill-label { font-weight: 700; }
+    #print-cv .cv-wins { columns: 2; column-gap: 20px; }
+    #print-cv .cv-win { font-size: 9pt; margin-bottom: 2px; break-inside: avoid; }
+    #print-cv .cv-win-scope { font-weight: 700; margin-right: 4px; }
+
+    @media print {
+      #print-cv { display: block !important; }
+    }
+  </style>
+
+  <!-- Top bar -->
+  <section class="bg-surface-warm border-b border-border no-print">
+    <div class="max-w-5xl mx-auto px-5 py-4 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href={`${base}about`} class="text-xs font-semibold uppercase tracking-widest text-ink/40 hover:text-primary-dark transition-colors flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          Full profile
+        </a>
+        <span class="text-ink/20">/</span>
+        <span class="text-xs font-bold uppercase tracking-widest text-primary-dark">PM CV</span>
+      </div>
+      <a
+        href={`${base}bryan-jeshua-pm-cv.pdf`}
+        download="Bryan-Jeshua-PM-CV.pdf"
+        class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-ink/60 hover:text-primary-dark border border-border hover:border-primary-dark rounded px-3 py-1.5 transition-colors"
+      >
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+        </svg>
+        Download CV
+      </a>
+    </div>
+  </section>
+
+  <!-- Header -->
+  <section class="py-12 px-5 border-b border-border">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-widest text-primary-dark mb-2">Product Manager · Builder · CS Undergrad</div>
+          <h1 class="font-display text-5xl md:text-6xl font-bold text-ink tracking-tight leading-none">Bryan Jeshua</h1>
+          <svg class="w-24 h-4 mt-4" viewBox="0 0 96 16" fill="none">
+            <path d="M2 9 Q12 2 22 10 Q32 16 42 6 Q52 0 62 10 Q72 15 82 7 L94 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" class="text-primary"/>
+          </svg>
+          <p class="mt-5 text-base text-ink/70 max-w-xl leading-relaxed">
+            I build products that work, people love, and change how things get done. From shipping ML-driven pricing at <strong class="text-ink">tiket.com</strong> that lifted Rp250M/month in revenue, to spinning off my professor's research lab (Lexin) into <strong class="text-ink">Klaussa</strong>, an AI legal-tech platform used by 200+ lawyers and backed by Google, NVIDIA &amp; UI Incubate, I turn vision into products that are economically real and built to last. Was a CS student at <strong class="text-ink">Universitas Indonesia</strong>. YLI Wave 17. 16+ wins.
+          </p>
+        </div>
+        <div class="flex flex-col gap-2 md:text-right shrink-0">
+          <a href="mailto:bryanjmt04@gmail.com" class="text-sm text-ink/60 hover:text-primary-dark transition-colors flex md:justify-end items-center gap-2">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            bryanjmt04@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/bryanjeshua/" target="_blank" rel="noopener noreferrer" class="text-sm text-ink/60 hover:text-primary-dark transition-colors flex md:justify-end items-center gap-2">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            linkedin.com/in/bryanjeshua
+          </a>
+          <a href="https://github.com/bryanjeshua" target="_blank" rel="noopener noreferrer" class="text-sm text-ink/60 hover:text-primary-dark transition-colors flex md:justify-end items-center gap-2">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            github.com/bryanjeshua
+          </a>
+          <span class="text-sm text-ink/40 flex md:justify-end items-center gap-2 mt-1">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Jakarta, Indonesia
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deliverables Viewer -->
+  <section class="border-b border-border bg-surface-warm no-print">
+    <div class="max-w-5xl mx-auto px-5 py-10">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-primary-dark">Work Samples</span>
+          <h2 class="font-display text-2xl font-bold text-ink mt-1 tracking-tight">Deliverables</h2>
+        </div>
+        <a id="deliverable-open" href="#" target="_blank" rel="noopener noreferrer"
+          class="hidden md:flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-ink/50 hover:text-primary-dark border border-border hover:border-primary-dark rounded px-3 py-1.5 transition-colors">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          Open in new tab
+        </a>
+      </div>
+
+      <!-- Desktop: two-panel viewer -->
+      <div class="hidden md:flex gap-0 border border-border rounded-sm overflow-hidden" style="height: 680px;">
+        <!-- Left: doc list -->
+        <div class="w-64 shrink-0 border-r border-border overflow-y-auto bg-surface" id="doc-list">
+          {[
+            { title: "FiskalLink AI Proposal",      file: "[BAHASA INDONESIA] FiskalLink-AI-Proposal.pdf",    type: "AI Proposal",         org: "Kalana",     lang: "ID" },
+            { title: "MetaSDI AI — Bappenas 2025",  file: "[BAHASA INDONESIA] MetaSDI-AI-Bappenas-2025.pdf", type: "AI Proposal",         org: "Kalana",     lang: "ID" },
+            { title: "PANTAU",                     file: "[BAHASA INDONESIA] PANTAU.pdf",                  type: "Research Proposal",   org: "Kalana",     lang: "ID" },
+            { title: "SIGAPID — Project Brief",     file: "[BAHASA INDONESIA] SIGAPID-ProjectBrief.pdf",     type: "Research Proposal",   org: "Kalana",     lang: "ID" },
+            { title: "ClaimSight",                  file: "[ENGLISH] ClaimSight.pdf",                        type: "Problem & Solution",  org: "Kalana",     lang: "EN" },
+            { title: "InvestAlign",                 file: "[ENGLISH] InvestAlign.pdf",                       type: "Problem & Solution",  org: "Kalana",     lang: "EN" },
+            { title: "SIGAPID",                     file: "[ENGLISH] SIGAPID.pdf",                           type: "Problem & Solution",  org: "Kalana",     lang: "EN" },
+            { title: "Ragamaya VR",                 file: "[BAHASA INDONESIA] Ragamaya.pdf",                 type: "Research Proposal",   org: "Ragamaya",   lang: "ID" },
+            { title: "NAVIGO",                      file: "[INDONESIA] NAVIGO.pdf",                          type: "Problem & Solution",  org: "Individual", lang: "ID" },
+            { title: "Blugrow",                     file: "[ENGLISH] Blugrow.pdf",                           type: "Business Consultancy",org: "Individual", lang: "EN" },
+          ].map(({ title, file, type, org, lang }, i) => (
+            <button
+              class={`doc-item w-full text-left px-4 py-3 border-b border-border transition-colors hover:bg-surface-warm ${i === 0 ? "bg-primary-dark/5 border-l-2 border-l-primary-dark" : ""}`}
+              data-file={`${base}deliverables/${encodeURIComponent(file)}`}
+              data-index={i}
+            >
+              <div class="flex items-start justify-between gap-1.5 mb-1">
+                <span class="text-xs font-semibold text-ink leading-snug">{title}</span>
+                <span class={`text-[8px] font-bold px-1 py-0.5 rounded shrink-0 ${lang === "EN" ? "bg-primary-dark text-white" : "border border-primary-dark text-primary-dark"}`}>{lang}</span>
+              </div>
+              <div class="text-[10px] text-ink/40">{org}</div>
+              <div class="text-[9px] text-ink/30 mt-0.5">{type}</div>
+            </button>
+          ))}
+        </div>
+
+        <!-- Right: iframe preview -->
+        <div class="flex-1 bg-ink/5 flex flex-col">
+          <iframe
+            id="doc-preview"
+            src={`${base}deliverables/${encodeURIComponent("[BAHASA INDONESIA] FiskalLink-AI-Proposal.pdf")}`}
+            class="flex-1 w-full h-full border-0"
+            title="Document preview"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- Mobile: simple list -->
+      <div class="md:hidden space-y-2">
+        {[
+          { title: "FiskalLink AI Proposal",      file: "[BAHASA INDONESIA] FiskalLink-AI-Proposal.pdf",    type: "AI Proposal",         org: "Kalana Consulting",  lang: "ID" },
+          { title: "MetaSDI AI — Bappenas 2025",  file: "[BAHASA INDONESIA] MetaSDI-AI-Bappenas-2025.pdf", type: "AI Proposal",         org: "Kalana Consulting",  lang: "ID" },
+          { title: "PANTAU",                     file: "[BAHASA INDONESIA] PANTAU.pdf",                  type: "Research Proposal",   org: "Kalana Consulting",  lang: "ID" },
+          { title: "SIGAPID — Project Brief",     file: "[BAHASA INDONESIA] SIGAPID-ProjectBrief.pdf",     type: "Research Proposal",   org: "Kalana Consulting",  lang: "ID" },
+          { title: "ClaimSight",                  file: "[ENGLISH] ClaimSight.pdf",                        type: "Problem & Solution",  org: "Kalana Consulting",  lang: "EN" },
+          { title: "InvestAlign",                 file: "[ENGLISH] InvestAlign.pdf",                       type: "Problem & Solution",  org: "Kalana Consulting",  lang: "EN" },
+          { title: "SIGAPID",                     file: "[ENGLISH] SIGAPID.pdf",                           type: "Problem & Solution",  org: "Kalana Consulting",  lang: "EN" },
+          { title: "Ragamaya VR",                 file: "[BAHASA INDONESIA] Ragamaya.pdf",                 type: "Research Proposal",   org: "Ragamaya VR",        lang: "ID" },
+          { title: "NAVIGO",                      file: "[INDONESIA] NAVIGO.pdf",                          type: "Problem & Solution",  org: "Individual",         lang: "ID" },
+          { title: "Blugrow",                     file: "[ENGLISH] Blugrow.pdf",                           type: "Business Consultancy",org: "Individual",         lang: "EN" },
+        ].map(({ title, file, type, org, lang }) => (
+          <a
+            href={`${base}deliverables/${encodeURIComponent(file)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-between gap-3 p-3 border border-border rounded-sm hover:border-primary-dark transition-colors"
+          >
+            <div class="flex-1 min-w-0">
+              <div class="text-sm font-semibold text-ink truncate">{title}</div>
+              <div class="text-[10px] text-ink/40 mt-0.5">{org} · {type}</div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <span class={`text-[9px] font-bold px-1.5 py-0.5 rounded ${lang === "EN" ? "bg-primary-dark text-white" : "border border-primary-dark text-primary-dark"}`}>{lang}</span>
+              <svg class="w-4 h-4 text-ink/30" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const items = document.querySelectorAll('.doc-item') as NodeListOf<HTMLButtonElement>;
+    const preview = document.getElementById('doc-preview') as HTMLIFrameElement;
+    const openBtn = document.getElementById('deliverable-open') as HTMLAnchorElement;
+
+    items.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const file = btn.dataset.file as string;
+        // update iframe
+        preview.src = file;
+        // update open link
+        openBtn.href = file;
+        // update active styles
+        items.forEach((b) => {
+          b.classList.remove('bg-primary-dark/5', 'border-l-2', 'border-l-primary-dark');
+        });
+        btn.classList.add('bg-primary-dark/5', 'border-l-2', 'border-l-primary-dark');
+      });
+    });
+
+    // set initial open link
+    if (items.length > 0) {
+      openBtn.href = (items[0] as HTMLButtonElement).dataset.file as string;
+    }
+  </script>
+
+  <!-- Impact Numbers -->
+  <section class="border-b border-border bg-surface-warm">
+    <div class="max-w-5xl mx-auto px-5 py-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
+        {[
+          { stat: "Rp1B+", label: "Total grants secured", sub: "Klaussa + Ragamaya + mentored teams" },
+          { stat: "Rp850M+", label: "Sponsorship secured", sub: "Datathon 2024 as Event PIC" },
+          { stat: "162%", label: "Participation growth", sub: "315+ teams, largest student datathon" },
+          { stat: "16+", label: "Competition wins", sub: "13 personal · 3 team placements" },
+        ].map(({ stat, label, sub }) => (
+          <div class="bg-surface px-6 py-5">
+            <div class="font-display text-3xl md:text-4xl font-bold text-primary-dark leading-none">{stat}</div>
+            <div class="text-sm font-semibold text-ink mt-2 leading-snug">{label}</div>
+            <div class="text-xs text-ink/40 mt-1 leading-snug">{sub}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Main content -->
+  <div class="max-w-5xl mx-auto px-5 py-12">
+    <div class="grid md:grid-cols-3 gap-12">
+
+      <!-- Left col: sidebar -->
+      <div class="md:col-span-1 space-y-10">
+
+        <!-- Education -->
+        <div>
+          <div class="text-xs font-bold uppercase tracking-widest text-primary-dark mb-4">Education</div>
+          <div class="space-y-5">
+            <div>
+              <div class="text-sm font-bold text-ink">Universitas Indonesia</div>
+              <div class="text-xs text-ink/60 mt-0.5">B.Sc. Computer Science · Fasilkom UI</div>
+              <div class="text-xs text-ink/40 mt-0.5">Sep 2022 – 2026</div>
+              <div class="mt-2 inline-flex items-center text-xs font-semibold text-primary-dark bg-primary-dark/8 px-2 py-0.5 rounded-full">GPA 3.89 / 4.00</div>
+            </div>
+            <div>
+              <div class="text-sm font-bold text-ink">Nanyang Technological University</div>
+              <div class="text-xs text-ink/60 mt-0.5">INSPIRASI-NTU Summer Program 2025</div>
+              <div class="text-xs text-ink/40 mt-0.5">Sustainability · Smart City · Circular Economy</div>
+              <div class="mt-2 inline-flex items-center text-xs font-semibold text-primary-dark bg-primary-dark/8 px-2 py-0.5 rounded-full">LPDP Scholar · SGD 5,000</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <div>
+          <div class="text-xs font-bold uppercase tracking-widest text-primary-dark mb-4">Skills & Tools</div>
+          <div class="space-y-3">
+            {[
+              { label: "Product", items: ["Jira", "Confluence", "Amplitude", "Figma", "Notion", "PRD", "EDD", "OKR", "Roadmap", "User Research", "A/B Testing"] },
+              { label: "AI / Agentic", items: ["LangChain", "LangFuse", "Gemini", "Agentic Systems", "Prompt Engineering", "On-premise LLM"] },
+              { label: "ML / Data", items: ["PyTorch", "Scikit-Learn", "Pandas", "NumPy", "BigQuery", "RL Simulation"] },
+              { label: "Infra", items: ["GCP", "Docker", "PostgreSQL", "Redis", "CI/CD"] },
+              { label: "Languages", items: ["Python", "JavaScript", "Java", "Dart", "SQL"] },
+              { label: "Domain", items: ["Pricing Strategy", "Behavioral Economics", "Legal-Tech", "Game Industry", "B2B SaaS"] },
+            ].map(({ label, items }) => (
+              <div>
+                <div class="text-[10px] font-bold uppercase tracking-widest text-ink/30 mb-1.5">{label}</div>
+                <div class="flex flex-wrap gap-1.5">
+                  {items.map(item => (
+                    <span class="text-xs px-2 py-0.5 rounded border border-border text-ink/60">{item}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Recognitions -->
+        <div>
+          <div class="text-xs font-bold uppercase tracking-widest text-primary-dark mb-4">Selected Wins</div>
+          <div class="space-y-2.5">
+            {[
+              { scope: "INTL", title: "Top 20 · Microsoft Elevate AI Impact Challenge", year: "2026" },
+              { scope: "NATL", title: "Top 5 · AI Incubation for Public Sector — British Embassy × UK-Indonesia Tech Hub", year: "2026" },
+              { scope: "NATL", title: "Gold Medal · GEMASTIK 2024 Software Development", year: "2024" },
+              { scope: "INTL", title: "Finalist Top 10 · StudentxCEOs International Business Case", year: "2024" },
+              { scope: "INTL", title: "Finalist Top 6 · International Ganesha Business Case", year: "2024" },
+              { scope: "NATL", title: "1st Runner Up · ShARE UI Business Plan", year: "2024" },
+              { scope: "NATL", title: "1st Winner · Management Exposed, FEB UI", year: "2023" },
+              { scope: "NATL", title: "1st Runner Up · Tanoto Future Leader Startup & Pitching", year: "2023" },
+            ].map(({ scope, title, year }) => (
+              <div class="flex items-start gap-2">
+                <span class={`text-[9px] font-bold px-1 py-0.5 rounded shrink-0 mt-0.5 ${scope === "INTL" ? "bg-primary-dark text-white" : "border border-primary-dark text-primary-dark"}`}>{scope}</span>
+                <span class="text-xs text-ink/60 leading-snug flex-1">{title}</span>
+                <span class="text-[10px] text-ink/30 shrink-0 pt-0.5">{year}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Speaking (condensed) -->
+        <div>
+          <div class="text-xs font-bold uppercase tracking-widest text-primary-dark mb-4">Speaking</div>
+          <div class="space-y-2">
+            {[
+              { title: "From Academic Projects to Real World Impact", context: "with Felix Nugroho (CTO Ismaya) & Budhi Riyanta (CMO Medi-Call)", date: "Jun 2026", url: "https://www.instagram.com/p/DZbUZc6E-am/?img_index=1" },
+              { title: "Navigating the AI Era", context: "Universitas YARSI · 106 participants", date: "May 2026", url: "https://www.yarsi.ac.id/navigating-the-ai-era-literacy-industry-perspective-and-implementation" },
+              { title: "Klaussa Spinoff — Dies Natalis Fasilkom UI", context: "UI Center for Legal Informatics launch", date: "Nov 2025", url: "https://megapolitan.antaranews.com/berita/466629/fasilkom-ui-luncurkan-lexin-perkuat-riset-ai-di-bidang-hukum" },
+            ].map(({ title, context, date, url }) => (
+              <div class="py-2 border-b border-border last:border-0">
+                <a href={url} target="_blank" rel="noopener noreferrer" class="text-xs font-medium text-ink hover:text-primary-dark transition-colors underline underline-offset-2 decoration-border hover:decoration-primary-dark leading-snug">{title}</a>
+                <div class="text-[10px] text-ink/40 mt-0.5">{context} · {date}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right col: experience -->
+      <div class="md:col-span-2 space-y-10">
+
+        <!-- PM Narrative -->
+        <div class="p-5 border border-primary-dark/20 bg-primary-dark/4 rounded-sm">
+          <div class="text-xs font-bold uppercase tracking-widest text-primary-dark mb-3">Why PM</div>
+          <p class="text-sm text-ink/80 leading-relaxed">
+            I gravitate toward PM because it sits at the intersection of user behavior, data, and business systems — the exact territory I've explored at tiket.com (pricing × behavioral economics × ML), inside Klaussa (0→1 AI product), and across 10+ institutional partnerships at RISTEK. I'm most energized when a product decision has measurable downstream impact, and I have the technical depth to collaborate fluently with engineers while staying focused on outcomes.
+          </p>
+        </div>
+
+        <!-- Work Experience -->
+        <div>
+          <div class="text-xs font-bold uppercase tracking-widest text-primary-dark mb-6">Work Experience</div>
+          <div class="space-y-8">
+
+            {/* Klaussa */}
+            <div class="flex gap-5">
+              <div class="w-1 rounded-full bg-primary-dark shrink-0 self-stretch"></div>
+              <div class="flex-1 pb-2">
+                <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <a href="https://klaussa.com" target="_blank" rel="noopener noreferrer" class="text-base font-bold text-ink hover:text-primary-dark transition-colors">Klaussa Indonesia</a>
+                  <span class="text-xs text-ink/40 shrink-0">Aug 2025 – Jun 2026</span>
+                </div>
+                <div class="text-sm font-medium text-ink/60 mt-0.5">CEO / Product Principal · AI Legal-Tech Startup</div>
+                <ul class="mt-3 space-y-1.5">
+                  {[
+                    "Conducted user discovery with tens of lawyers, law students, and legal NGOs — identified data security, accuracy, and removal of menial tasks as core needs; translated findings directly into product priorities",
+                    "Grew from 0 to 200+ users (B2B institutions, legal startups, B2C law students) within 2 months; B2B clients include paying institutions and legal consultancies",
+                    "Owned product roadmap using impact/effort scoring and OKRs; aligned engineering and sales/marketing teams on priorities each sprint",
+                    "Iterated based on user feedback — removed a complex pipeline feature after adoption stalled, and decomposed one monolithic feature into atomic features after discovering users lacked technical familiarity",
+                    "Architected an agentic AI system combining multi-step contract review agents, tool-calling agents for legal research, and an orchestrator/sub-agent architecture using LangChain and Gemini, with on-premise model hosting for data privacy compliance",
+                    "Built a document extraction pipeline processing 300,000+ court decisions, contracts, and regulations — PDF parsing, OCR, and custom chunking optimised for legal document structure",
+                    "Designed system architecture for hundreds of concurrent users: rate limiting, Redis caching layer, GCP, and PostgreSQL with multi-tenant isolation",
+                    "Implemented AI cost observability via LangFuse: cost-per-query tracking, token cost per user/feature, and spend thresholds",
+                    "Built engineering from zero to one — hired and shaped a 7-person team, defined the full tech stack, established CI/CD and code review culture",
+                    "Secured Rp300M preseed from UI Incubate; accepted into Google for AI Startups and NVIDIA Inception Program",
+                  ].map(bullet => (
+                    <li class="flex items-start gap-2 text-sm text-ink/70 leading-relaxed">
+                      <span class="mt-2 w-1 h-1 rounded-full bg-primary-dark shrink-0"></span>
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+                <div class="flex flex-wrap gap-1.5 mt-3">
+                  {["User Discovery", "OKR", "Roadmap", "Agentic AI", "LangChain", "LangFuse", "GCP", "0→1 Engineering", "Google for Startups", "NVIDIA Inception"].map(t => (
+                    <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-primary-dark/8 text-primary-dark">{t}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Kalana */}
+            <div class="flex gap-5">
+              <div class="w-1 rounded-full bg-primary-dark shrink-0 self-stretch"></div>
+              <div class="flex-1 pb-2">
+                <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <a href="https://kalana.consulting" target="_blank" rel="noopener noreferrer" class="text-base font-bold text-ink hover:text-primary-dark transition-colors">Kalana Consulting</a>
+                  <span class="text-xs text-ink/40 shrink-0">Jan – Jun 2026</span>
+                </div>
+                <div class="text-sm font-medium text-ink/60 mt-0.5">Project Lead · Full-time Remote</div>
+                <ul class="mt-3 space-y-1.5">
+                  {[
+                    "Leading client consulting projects end-to-end; Top 5 in AI Incubation for Public Sector — British Embassy Jakarta × UK-Indonesia Tech Hub",
+                    "Advised game studios on product development strategy — for one studio, helped secure Rp300M in funding by presenting to venture capital and government auditors, ensuring regulatory compliance, economic viability, and roadmap alignment with the invested budget",
+                    "For another studio, realigned the product roadmap, economic viability strategy, market sizing, vertical-slice requirements, and storytelling narrative, contributing to a game development competition win",
+                    "Facilitated connections with investors and industry partners from Garena, Xbox (Microsoft), Sony, and Tencent, as well as media and community partners, distributors, and publicists",
+                  ].map(bullet => (
+                    <li class="flex items-start gap-2 text-sm text-ink/70 leading-relaxed">
+                      <span class="mt-2 w-1 h-1 rounded-full bg-primary-dark shrink-0"></span>
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+                <div class="flex flex-wrap gap-1.5 mt-3">
+                  {["Consulting", "Product Strategy", "Game Industry", "Investor Relations", "AI Strategy"].map(t => (
+                    <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-primary-dark/8 text-primary-dark">{t}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Superbank PMO */}
+            <div class="flex gap-5">
+              <div class="w-1 rounded-full bg-primary-dark shrink-0 self-stretch"></div>
+              <div class="flex-1 pb-2">
+                <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <a href="https://www.superbank.id/" target="_blank" rel="noopener noreferrer" class="text-base font-bold text-ink hover:text-primary-dark transition-colors">Superbank</a>
+                  <span class="text-xs text-ink/40 shrink-0">Jan – Mar 2026</span>
+                </div>
+                <div class="text-sm font-medium text-ink/60 mt-0.5">Project Management Office · Seasonal</div>
+                <ul class="mt-3 space-y-1.5">
+                  {[
+                    "Worked under the Project Management Office (PMO) and was mentored by a McKinsey Associate, presenting directly to the CHRO while coordinating cross-functionally with HR and 11 department representatives",
+                    "Conducted qualitative data gathering across departments to identify adoption barriers and organizational needs, then translated findings into strategy and internal communications to drive platform adoption and reinforce SuperWays of Working as the company scaled rapidly",
+                  ].map(bullet => (
+                    <li class="flex items-start gap-2 text-sm text-ink/70 leading-relaxed">
+                      <span class="mt-2 w-1 h-1 rounded-full bg-primary-dark shrink-0"></span>
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+                <div class="flex flex-wrap gap-1.5 mt-3">
+                  {["PMO", "McKinsey × YLI", "Fintech"].map(t => (
+                    <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-primary-dark/8 text-primary-dark">{t}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* tiket.com */}
+            <div class="flex gap-5">
+              <div class="w-1 rounded-full bg-primary-dark shrink-0 self-stretch"></div>
+              <div class="flex-1 pb-2">
+                <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <a href="https://www.tiket.com" target="_blank" rel="noopener noreferrer" class="text-base font-bold text-ink hover:text-primary-dark transition-colors">tiket.com</a>
+                  <span class="text-xs text-ink/40 shrink-0">Mar – Sep 2025</span>
+                </div>
+                <div class="text-sm font-medium text-ink/60 mt-0.5">Product Management — Pricing · Internship</div>
+                <ul class="mt-3 space-y-1.5">
+                  {[
+                    "Led the ML-based pricing initiative for flight-tied insurance and train products as the driving PM — wrote the EDD, defined feature specs, aligned data scientists on model selection, and owned success metrics; team effort delivered a Rp250M/month revenue lift",
+                    "Led a deployed RL-inspired user segmentation system: owned system design and drove cross-stakeholder implementation across product, data science, and engineering. Segmentation signals included purchase history, price sensitivity, and multi-product past transactions — enabling customised pricing per user to enhance stickiness and margin",
+                    "Initiated a behavioral economics nudge strategy backed by A/B testing — implemented urgency cues, social proof, anchoring, and loss aversion framing. Key nudge: surfacing price trajectory data showing inventory cost spikes in the last 30 days before departure to drive early purchase",
+                    "Conducted 5-month competitor price analysis, aggregating pricing data across X days before departure to improve coverage and reduce cost — enabling the team to dynamically respond to competitor pricing movements",
+                  ].map(bullet => (
+                    <li class="flex items-start gap-2 text-sm text-ink/70 leading-relaxed">
+                      <span class="mt-2 w-1 h-1 rounded-full bg-primary-dark shrink-0"></span>
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+                <div class="flex flex-wrap gap-1.5 mt-3">
+                  {["ML Pricing", "Behavioral Economics", "A/B Testing", "RL-inspired Segmentation", "EDD", "Jira", "Amplitude"].map(t => (
+                    <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-primary-dark/8 text-primary-dark">{t}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Gladiatos */}
+            <div class="flex gap-5">
+              <div class="w-1 rounded-full bg-border shrink-0 self-stretch"></div>
+              <div class="flex-1 pb-2">
+                <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <a href="https://www.gladiatosui.com/" target="_blank" rel="noopener noreferrer" class="text-base font-bold text-ink hover:text-primary-dark transition-colors">Gladiatos Robotics — Universitas Indonesia</a>
+                  <span class="text-xs text-ink/40 shrink-0">Jun 2024 – Jun 2025</span>
+                </div>
+                <div class="text-sm font-medium text-ink/60 mt-0.5">Managing Director</div>
+                <ul class="mt-3 space-y-1.5">
+                  {[
+                    "Owned the product and technical roadmap for humanoid robot development — got a previously immobile humanoid walking within 1 month, laying the foundation that carried the team to international competition",
+                    "Managed people and ops end-to-end: team structure, workload, mentorship coordination with SNUST Korea, and keeping the team alive through an extremely resource-constrained period with minimal sponsorship",
+                    "Shipped 9 iterations of robocar robots as hands-on onboarding projects for new members — maintaining a continuous delivery rhythm despite budget constraints",
+                    "Led the team to compete in 3 national competitions, achieving Top 16 and Top 8 placements — a turnaround from a near-disbanded state",
+                    "Oversaw development of 3D environment simulations for humanoid robots and computer vision models",
+                  ].map(bullet => (
+                    <li class="flex items-start gap-2 text-sm text-ink/70 leading-relaxed">
+                      <span class="mt-2 w-1 h-1 rounded-full bg-border shrink-0"></span>
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+                <div class="flex flex-wrap gap-1.5 mt-3">
+                  {["Technical Roadmap", "Team Turnaround", "Computer Vision", "Resource-constrained Delivery", "Robotics"].map(t => (
+                    <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full border border-border text-ink/50">{t}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* RISTEK */}
+            <div class="flex gap-5">
+              <div class="w-1 rounded-full bg-border shrink-0 self-stretch"></div>
+              <div class="flex-1 pb-2">
+                <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <a href="https://www.ristek.cs.ui.ac.id/" target="_blank" rel="noopener noreferrer" class="text-base font-bold text-ink hover:text-primary-dark transition-colors">RISTEK Fasilkom UI</a>
+                  <span class="text-xs text-ink/40 shrink-0">Jan – Dec 2024</span>
+                </div>
+                <div class="text-sm font-medium text-ink/60 mt-0.5">Vice Director of Business Growth, Business Growth and Partnerships Student Interest Group</div>
+                <ul class="mt-3 space-y-1.5">
+                  {[
+                    "Directed the partnership development process by identifying key stakeholders, negotiating terms, and securing agreements with 10+ institutions — resulting in partnerships valued at over $49,000. Managed contract timelines, deliverables, and stakeholder communications to ensure successful project outcomes.",
+                    "Spearheaded a collaborative initiative between Fakultas Ilmu Komputer UI, University of Sussex, and Monash University, fostering academic exchange and stronger ties between leading universities.",
+                    "Managed the end-to-end transformation of an internal student data competition — project planning, scope definition, resource allocation, and risk management — resulting in the largest student-led data competition in the country. Oversaw 800+ participants from UI, ITB, UGM, Oxford, NTU, NUS, UoFT, and Monash.",
+                  ].map(bullet => (
+                    <li class="flex items-start gap-2 text-sm text-ink/70 leading-relaxed">
+                      <span class="mt-2 w-1 h-1 rounded-full bg-border shrink-0"></span>
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+                <div class="flex flex-wrap gap-1.5 mt-3">
+                  {["Partnerships", "Business Development", "Event Strategy", "Rp850M+ Secured"].map(t => (
+                    <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full border border-border text-ink/50">{t}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Leadership & Research Experience -->
+        <div>
+          <div class="text-xs font-bold uppercase tracking-widest text-primary-dark mb-4">Leadership &amp; Research Experience</div>
+          <div class="flex gap-5">
+            <div class="w-1 rounded-full bg-border shrink-0 self-stretch"></div>
+            <div>
+              <a href="https://ragamayavr.com" target="_blank" rel="noopener noreferrer" class="text-base font-bold text-ink hover:text-primary-dark transition-colors">Ragamaya VR</a><span class="text-base font-bold text-ink"> — Co Principal Researcher</span>
+              <div class="text-sm font-medium text-ink/60 mt-0.5">Universitas Indonesia × SMPK St. Ignatius Loyola, Labuan Bajo · Jun 2025 – Jun 2026</div>
+              <ul class="mt-3 space-y-1.5">
+                {[
+                  "Pitched and secured Rp150,000,000 in research funding to build a VR learning experience preserving NTT local folklore, leading the project from concept definition through deployment planning with Unity and Blender",
+                  "Established end-to-end product discovery and requirement gathering by collecting local folklore source material, structuring FGDs, defining user and learning requirements, and translating qualitative insights into product direction, feature scope, and content priorities",
+                  "Planned field execution for site visits to a remote island community, including local-dialect considerations, stakeholder engagement, and operational preparation, while building cross-faculty collaboration across Faculty of Cultural Sciences, Faculty of Computer Science, and Faculty of Engineering",
+                  "Guided the project as product lead by setting roadmap, milestones, scope, and delivery priorities; aligned researchers, creators, and external stakeholders, managed tradeoffs across content, UX, and technical feasibility, and built partnerships with Dinas Pemuda, Pendidikan, dan Olahraga while advancing the project from TRL 4 to TRL 5",
+                  "Successfully deployed the VR experience in a frontier school in one of Indonesia's poorest provinces, creating learning impact for 300+ students and teachers",
+                ].map(bullet => (
+                  <li class="flex items-start gap-2 text-sm text-ink/70 leading-relaxed">
+                    <span class="mt-2 w-1 h-1 rounded-full bg-border shrink-0"></span>
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mentoring -->
+        <div>
+          <div class="text-xs font-bold uppercase tracking-widest text-primary-dark mb-4">Mentoring Impact</div>
+          <div class="grid sm:grid-cols-2 gap-3">
+            {[
+              { team: "Pinkmatcha Studio", result: "Incubated · Preseed Rp300,000,000", year: "2026" },
+              { team: "Nura", result: "Hultprize · Microsoft AI Demoday · Best Software Project Fasilkom", year: "2026" },
+              { team: "3 teams · GEMASTIK 2025", result: "All 3 teams reached the final round (Software Dev + IoT)", year: "2025" },
+              { team: "Kretacat Express", result: "1st Place — ITB Game Competition", year: "2026" },
+            ].map(({ team, result, year }) => (
+              <div class="p-3.5 border border-border rounded-sm">
+                <div class="text-xs font-bold text-ink">{team}</div>
+                <div class="text-xs text-ink/50 mt-1 leading-snug">{result}</div>
+                <div class="text-[10px] text-ink/30 mt-1">{year}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer CTA -->
+  <section class="border-t border-border bg-surface-warm py-10 px-5 no-print">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <div class="text-sm font-semibold text-ink">Want the full picture?</div>
+        <div class="text-xs text-ink/50 mt-0.5">Achievements, timeline, speaking, volunteering — all on the about page.</div>
+      </div>
+      <div class="flex gap-3">
+        <a href={`${base}about`} class="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-ink hover:text-primary-dark border border-border hover:border-primary-dark px-4 py-2 rounded transition-colors">
+          Full profile
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <a href="https://mail.google.com/mail/?view=cm&to=bryanjmt04@gmail.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-white bg-primary-dark hover:bg-primary-dark/90 px-4 py-2 rounded transition-colors">
+          Get in touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATS-friendly print-only CV (hidden on screen, shown on print) -->
+  <div id="print-cv">
+    <h1>Bryan Jeshua</h1>
+    <div class="cv-tagline">Product Manager · Builder · CS Graduate, Universitas Indonesia</div>
+    <div class="cv-contact">
+      bryanjmt04@gmail.com &nbsp;|&nbsp;
+      <a href="https://linkedin.com/in/bryanjeshua">linkedin.com/in/bryanjeshua</a> &nbsp;|&nbsp;
+      <a href="https://github.com/bryanjeshua">github.com/bryanjeshua</a> &nbsp;|&nbsp;
+      Jakarta, Indonesia
+    </div>
+    <hr />
+
+    <h2>Summary</h2>
+    <p style="font-size:9.5pt; margin:0 0 6px;">
+      I build products that work, people love, and change how things get done. From shipping ML-driven pricing at tiket.com that lifted Rp250M/month in revenue, to spinning off a university research lab into Klaussa, an AI legal-tech platform used by 200+ lawyers and backed by Google, NVIDIA, and UI Incubate, I turn vision into products that are economically real and built to last. YLI Wave 17 Awardee. 16+ competition wins nationally and internationally.
+    </p>
+
+    <h2>Work Experience</h2>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-org"><a href="https://klaussa.com">Klaussa Indonesia</a></span>
+        <span class="cv-date">Aug 2025 – Jun 2026</span>
+      </div>
+      <div class="cv-role">CEO / Product Principal · AI Legal-Tech Startup</div>
+      <ul>
+        <li>AI co-pilot for lawyers used by 200+ corporate lawyers, institutions, and students — turning weeks of contract analysis into 15 minutes</li>
+        <li>Architected an agentic AI system combining multi-step contract review agents, tool-calling agents for legal research, and an orchestrator/sub-agent architecture using LangChain and Gemini, with on-premise model hosting for data privacy compliance</li>
+        <li>Built a document extraction pipeline processing 300,000+ court decisions, contracts, and regulations — covering PDF parsing, OCR, and a custom chunking strategy optimised for legal document structure</li>
+        <li>Designed system architecture for hundreds of concurrent users: rate limiting, Redis caching layer, GCP infrastructure, and PostgreSQL with multi-tenant isolation</li>
+        <li>Established accuracy benchmarks for clause extraction and latency evaluation to drive iterative model improvement</li>
+        <li>Implemented AI cost observability via LangFuse: cost-per-query tracking, token cost per user/feature, and spend thresholds</li>
+        <li>Built engineering from zero to one — hired and shaped a 7-person team, defined the full tech stack, established CI/CD pipelines and code review culture from day one</li>
+        <li>Secured Rp300M preseed from UI Incubate; accepted into Google for AI Startups and NVIDIA Inception Program</li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-org"><a href="https://kalana.consulting">Kalana Consulting</a></span>
+        <span class="cv-date">Jan – Jun 2026</span>
+      </div>
+      <div class="cv-role">Project Lead · Full-time Remote</div>
+      <ul>
+        <li>Leading client consulting projects end-to-end; Top 5 in AI Incubation for Public Sector — British Embassy Jakarta x UK-Indonesia Tech Hub</li>
+        <li>Advised game studios on product development strategy — for one studio, helped secure Rp300M in funding by presenting to venture capital and government auditors, ensuring regulatory compliance, economic viability, and roadmap alignment with the invested budget</li>
+        <li>For another studio, realigned the product roadmap, economic viability strategy, market sizing, vertical-slice requirements, and storytelling narrative, contributing to a game development competition win</li>
+        <li>Facilitated connections with investors and industry partners from Garena, Xbox (Microsoft), Sony, and Tencent, as well as media and community partners, distributors, and publicists</li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-org"><a href="https://www.superbank.id/">Superbank</a></span>
+        <span class="cv-date">Jan – Mar 2026</span>
+      </div>
+      <div class="cv-role">Project Management Office · Seasonal (YLI x McKinsey Breakthrough Leadership Project)</div>
+      <ul>
+        <li>Worked under the Project Management Office (PMO) and was mentored by a McKinsey Associate, presenting directly to the CHRO while coordinating cross-functionally with HR and 11 department representatives</li>
+        <li>Conducted qualitative data gathering across departments to identify adoption barriers and organizational needs, then translated findings into strategy and internal communications to drive platform adoption and reinforce SuperWays of Working as the company scaled rapidly</li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-org"><a href="https://www.tiket.com">tiket.com</a></span>
+        <span class="cv-date">Mar – Sep 2025</span>
+      </div>
+      <div class="cv-role">Product Management — Pricing · Internship</div>
+      <ul>
+        <li>Initiated and owned an ML-based pricing initiative for flight-tied insurance and train products — wrote the EDD, defined feature specs, collaborated with data scientists on model selection, and defined success metrics; delivered a Rp250M/month revenue lift</li>
+        <li>Led a deployed RL-inspired user segmentation system: owned system design and drove cross-stakeholder implementation. Signals: purchase history, price sensitivity, and multi-product past transactions — enabling customised pricing per user to enhance stickiness and margin</li>
+        <li>Initiated a behavioral economics nudge strategy backed by A/B testing — implemented urgency cues, social proof, anchoring, and loss aversion framing. Key nudge: surfacing price trajectory data showing inventory cost spikes in the last 30 days before departure to drive early purchase</li>
+        <li>Conducted 5-month competitor price analysis, aggregating pricing data across days before departure to improve coverage and reduce cost — enabling dynamic response to competitor pricing movements</li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-org"><a href="https://www.gladiatosui.com/">Gladiatos Robotics, Universitas Indonesia</a></span>
+        <span class="cv-date">Jun 2024 – Jun 2025</span>
+      </div>
+      <div class="cv-role">Managing Director</div>
+      <ul>
+        <li>Owned product and technical roadmap — got a previously immobile humanoid robot walking within 1 month</li>
+        <li>Managed team structure, workload, and mentorship coordination with SNUST Korea through a resource-constrained period with minimal sponsorship</li>
+        <li>Shipped 9 iterations of robocar robots; led the team to 3 national competitions achieving Top 16 and Top 8 placements from a near-disbanded state</li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-org"><a href="https://www.ristek.cs.ui.ac.id/">RISTEK Fasilkom UI</a></span>
+        <span class="cv-date">Jan – Dec 2024</span>
+      </div>
+      <div class="cv-role">Vice Director of Business Growth, Business Growth and Partnerships Student Interest Group · PIC Datathon 2024</div>
+      <ul>
+        <li>Directed partnership development with 10+ institutions — partnerships valued at over $49,000; managed contract timelines, deliverables, and stakeholder communications</li>
+        <li>Spearheaded academic collaboration between Fasilkom UI, University of Sussex, and Monash University</li>
+        <li>Managed end-to-end transformation of Datathon into the largest student-led data competition in Indonesia — 800+ participants from UI, ITB, UGM, Oxford, NTU, NUS, UoFT, and Monash</li>
+      </ul>
+    </div>
+
+    <h2>Leadership &amp; Research Experience</h2>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-org"><a href="https://ragamayavr.com">Ragamaya VR</a> — Universitas Indonesia x SMPK St. Ignatius Loyola, Labuan Bajo</span>
+        <span class="cv-date">Jun 2025 – Jun 2026</span>
+      </div>
+      <div class="cv-role">Co Principal Researcher</div>
+      <ul>
+        <li>Pitched and secured Rp150,000,000 in research funding to build a VR learning experience preserving NTT local folklore, leading the project from concept definition through deployment planning with Unity and Blender</li>
+        <li>Established end-to-end product discovery and requirement gathering by collecting local folklore source material, structuring FGDs, defining user and learning requirements, and translating qualitative insights into product direction, feature scope, and content priorities</li>
+        <li>Planned field execution for site visits to a remote island community, including local-dialect considerations, stakeholder engagement, and operational preparation, while building cross-faculty collaboration across Faculty of Cultural Sciences, Faculty of Computer Science, and Faculty of Engineering</li>
+        <li>Guided the project as product lead by setting roadmap, milestones, scope, and delivery priorities; aligned researchers, creators, and external stakeholders, managed tradeoffs across content, UX, and technical feasibility, and built partnerships with Dinas Pemuda, Pendidikan, dan Olahraga while advancing the project from TRL 4 to TRL 5</li>
+        <li>Successfully deployed the VR experience in a frontier school in one of Indonesia's poorest provinces, creating learning impact for 300+ students and teachers</li>
+      </ul>
+    </div>
+
+    <h2>Education</h2>
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-org">Universitas Indonesia</span>
+        <span class="cv-date">Sep 2022 – 2026</span>
+      </div>
+      <div class="cv-role">Bachelor of Computer Science, Faculty of Computer Science (Fasilkom UI) · GPA 3.89 / 4.00</div>
+    </div>
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-org">Nanyang Technological University Singapore</span>
+        <span class="cv-date">Jul 2025</span>
+      </div>
+      <div class="cv-role">INSPIRASI-NTU Summer Program · Sustainability, Smart City, Circular Economy · LPDP Scholar (SGD 5,000)</div>
+    </div>
+
+    <h2>Skills</h2>
+    <div class="cv-skills-grid">
+      <div class="cv-skill-row"><span class="cv-skill-label">Product:</span> Jira, Confluence, Amplitude, Figma, Postman, Notion, EDD, A/B Testing</div>
+      <div class="cv-skill-row"><span class="cv-skill-label">AI / Agentic:</span> LangChain, LangFuse, Gemini, Prompt Engineering, On-premise LLM</div>
+      <div class="cv-skill-row"><span class="cv-skill-label">ML / Data:</span> PyTorch, Scikit-Learn, Pandas, NumPy, BigQuery, RL Simulation</div>
+      <div class="cv-skill-row"><span class="cv-skill-label">Infra:</span> GCP, Docker, PostgreSQL, Redis, CI/CD</div>
+      <div class="cv-skill-row"><span class="cv-skill-label">Languages:</span> Python, JavaScript, Java, Dart, SQL</div>
+      <div class="cv-skill-row"><span class="cv-skill-label">Domain:</span> Pricing Strategy, Behavioral Economics, Legal-Tech, Game Industry, B2B SaaS</div>
+    </div>
+
+    <h2>Selected Achievements</h2>
+    <div class="cv-wins">
+      <div class="cv-win"><span class="cv-win-scope">[INTL]</span> Top 20 · Microsoft Elevate AI Impact Challenge (2026)</div>
+      <div class="cv-win"><span class="cv-win-scope">[NATL]</span> Top 5 · AI Incubation for Public Sector — British Embassy x UK-Indonesia Tech Hub (2026)</div>
+      <div class="cv-win"><span class="cv-win-scope">[NATL]</span> Gold Medal · GEMASTIK 2024 Software Development (2024)</div>
+      <div class="cv-win"><span class="cv-win-scope">[INTL]</span> Finalist Top 10 · StudentxCEOs International Business Case Competition (2024)</div>
+      <div class="cv-win"><span class="cv-win-scope">[INTL]</span> Finalist Top 6 · International Ganesha Business Case Competition (2024)</div>
+      <div class="cv-win"><span class="cv-win-scope">[NATL]</span> 1st Runner Up · ShARE UI Business Plan Competition (2024)</div>
+      <div class="cv-win"><span class="cv-win-scope">[NATL]</span> 1st Winner · Management Exposed, FEB UI (2023)</div>
+      <div class="cv-win"><span class="cv-win-scope">[NATL]</span> 1st Runner Up · Tanoto Future Leader Startup and Pitching (2023)</div>
+      <div class="cv-win"><span class="cv-win-scope">[INTL]</span> Young Leaders for Indonesia — Wave 17 Awardee, YLI Foundation (2025)</div>
+    </div>
+  </div>
+
+</Layout>
