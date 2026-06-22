@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bryan Jeshua Mario Timung — PM CV</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0.6in 0.65in;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Arial', 'Helvetica Neue', sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.38;
+      color: #111;
+      background: #fff;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 36px 40px;
+    }
+
+    /* ── Header ── */
+    .header { margin-bottom: 10px; }
+    .header h1 {
+      font-size: 19pt;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      margin-bottom: 2px;
+    }
+    .header .tagline {
+      font-size: 9pt;
+      color: #444;
+      margin-bottom: 4px;
+    }
+    .header .contact {
+      font-size: 8.5pt;
+      color: #444;
+    }
+    .header .contact a { color: #1a56db; text-decoration: underline; text-underline-offset: 2px; }
+    a { color: #1a56db; text-decoration: underline; text-underline-offset: 2px; }
+    .entry-org a { color: #1a56db; text-decoration: underline; text-underline-offset: 2px; }
+
+    /* ── Divider ── */
+    hr {
+      border: none;
+      border-top: 1.5px solid #111;
+      margin: 8px 0 6px;
+    }
+
+    /* ── Section heading ── */
+    h2 {
+      font-size: 8.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      border-bottom: 0.5px solid #bbb;
+      padding-bottom: 2px;
+      margin: 13px 0 6px;
+      page-break-after: avoid;
+    }
+
+    /* ── Entry ── */
+    .entry {
+      margin-bottom: 8px;
+      page-break-inside: avoid;
+    }
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .entry-org {
+      font-weight: 700;
+      font-size: 9.5pt;
+    }
+    .entry-org a { color: #1a56db; }
+    .entry-date {
+      font-size: 8.5pt;
+      color: #555;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .entry-role {
+      font-size: 8.5pt;
+      color: #333;
+      font-style: italic;
+      margin: 1px 0 3px;
+    }
+
+    /* ── Bullets ── */
+    ul {
+      padding-left: 13px;
+      margin: 2px 0 0;
+    }
+    ul li {
+      margin-bottom: 1px;
+      font-size: 9pt;
+      color: #111;
+      page-break-inside: avoid;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    /* ── Skills list ── */
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-top: 2px;
+    }
+    .skill-row { font-size: 8.5pt; }
+    .skill-label { font-weight: 700; }
+
+    /* ── Achievements ── */
+    .wins {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    .win {
+      font-size: 8.5pt;
+      margin-bottom: 0;
+    }
+    .win-scope { font-weight: 700; margin-right: 3px; }
+
+    /* ── Print button (screen only) ── */
+    .print-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #111;
+      color: #fff;
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      border: none;
+      padding: 10px 18px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    @media print {
+      .print-btn { display: none; }
+      body { padding: 0; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Bryan Jeshua Mario Timung</h1>
+    <div class="contact">
+      bryanjmt04@gmail.com &nbsp;|&nbsp;
+      <a href="https://linkedin.com/in/bryanjeshua">linkedin.com/in/bryanjeshua</a> &nbsp;|&nbsp;
+      <a href="https://github.com/bryanjeshua">github.com/bryanjeshua</a> &nbsp;|&nbsp;
+      <a href="https://bryanjeshua.github.io/personal-blog/pm-cv/">Portfolio</a> &nbsp;|&nbsp;
+      Jakarta, Indonesia<br />Open to relocation to Australia and Asia
+    </div>
+  </div>
+  <hr />
+
+  <!-- Work Experience -->
+  <h2>Work Experience</h2>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-org"><a href="https://klaussa.com">Klaussa Indonesia</a></span>
+      <span class="entry-date">Aug 2025 – Jun 2026</span>
+    </div>
+    <div class="entry-role">Founder and Principal of Product</div>
+    <ul>
+      <li>Led user discovery with <strong>lawyers, law students, and legal NGOs</strong>; turned findings into roadmap priorities, grew to <strong>200+ users and corporate partners in 2 months</strong>, and simplified low-adoption features based on feedback</li>
+      <li>Architected an <strong>agentic AI system</strong> for contract review and legal research using LangChain and Gemini, with orchestrator/sub-agent flows, on-premise hosting, and <strong>LangFuse</strong> cost observability</li>
+      <li>Built a legal document pipeline for <strong>300,000+ decisions, contracts, and regulations</strong> using PDF parsing, OCR, and custom chunking, and designed rate-limited, multi-tenant infrastructure on Redis, GCP, and PostgreSQL</li>
+      <li>Built engineering from <strong>0 to 1</strong> by hiring a <strong>7-person team</strong>, defining the stack and CI/CD culture, and secured <strong>Rp300M preseed</strong> plus acceptance into <strong>Google for AI Startups</strong> and <strong>NVIDIA Inception</strong></li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-org"><a href="https://kalana.consulting">Kalana Consulting</a></span>
+      <span class="entry-date">Jan – Jun 2026</span>
+    </div>
+    <div class="entry-role">Project and Product Lead</div>
+    <ul>
+      <li>Worked hand in hand with government officials and a larger consulting firm to deliver pilot solutions for the <strong>Ministry of Finance</strong>; <strong>Top 5 in AI Incubation for Public Sector</strong> — British Embassy Jakarta x UK-Indonesia Tech Hub</li>
+      <li>Advised a game studio on funding readiness by preparing venture capital and government-auditor presentations, aligning product roadmap with budget deployment, and strengthening regulatory and economic feasibility, contributing to <strong>Rp300M in funding</strong></li>
+      <li>Advised a game studio on product strategy by realigning roadmap priorities, refining market sizing, defining vertical-slice requirements, and sharpening narrative positioning, contributing to a <strong>game development competition win</strong></li>
+      <li>Facilitated connections with <strong>Garena, Xbox, Sony, and Tencent</strong>, plus media and community partners, distributors, and publicists</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-org"><a href="https://www.superbank.id/">Superbank</a></span>
+      <span class="entry-date">Jan – Mar 2026</span>
+    </div>
+    <div class="entry-role">Project Management Office · Seasonal (YLI x McKinsey Breakthrough Leadership Project)</div>
+    <ul>
+      <li>Worked under the <strong>PMO</strong> with mentorship from a <strong>McKinsey Associate</strong>, presenting directly to the <strong>CHRO</strong> and coordinating with HR plus <strong>11 department representatives</strong></li>
+      <li>Conducted <strong>qualitative research</strong> across departments and turned findings into strategy and communications to improve <strong>platform adoption</strong> and reinforce <strong>SuperWays of Working</strong></li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-org"><a href="https://www.tiket.com">tiket.com</a></span>
+      <span class="entry-date">Mar – Sep 2025</span>
+    </div>
+    <div class="entry-role">Product Management — Pricing · Internship</div>
+    <ul>
+      <li>Led an <strong>ML-based pricing initiative</strong> for insurance and train products, wrote the EDD and feature specs, aligned data scientists on model selection, and delivered <strong>Rp250M/month revenue lift</strong> and <strong>130% internal vertical growth</strong></li>
+      <li>Led a deployed <strong>RL-inspired user segmentation system</strong> using purchase history, price sensitivity, and cross-product transactions to enable customized pricing per user</li>
+      <li>Designed a <strong>behavioral economics nudge strategy</strong> with A/B testing, using urgency, social proof, anchoring, and loss-aversion cues to drive earlier purchase</li>
+      <li>Defined a <strong>competitor price scraping strategy</strong> that improved OTA comparison data quality, increased coverage by <strong>190%</strong> with a <strong>10% budget increase</strong>, and expanded inventory coverage</li>
+    </ul>
+  </div>
+
+  <!-- Leadership & Research Experience -->
+  <h2>Leadership &amp; Research Experience</h2>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-org"><a href="https://ragamayavr.com">Ragamaya VR</a> — Universitas Indonesia x SMPK St. Ignatius Loyola, Labuan Bajo</span>
+      <span class="entry-date">Jun 2025 – Jun 2026</span>
+    </div>
+    <div class="entry-role">Co Principal Researcher - Project and Product Manager</div>
+    <ul>
+      <li>Secured <strong>Rp150,000,000 in research funding</strong> to build a VR learning experience preserving NTT local folklore using Unity and Blender</li>
+      <li>Led product discovery and requirement gathering by collecting folklore, running <strong>FGDs</strong>, and translating qualitative insights into feature scope and content priorities</li>
+      <li>Planned site visits to a <strong>remote island community</strong>, coordinated local-dialect fieldwork, and built cross-faculty collaboration plus partnerships with <strong>Dinas Pemuda, Pendidikan, dan Olahraga</strong></li>
+      <li>Led roadmap, scope, and delivery decisions, advanced the project from <strong>TRL 4 to TRL 5</strong>, and deployed the VR experience to a frontier school serving <strong>300+ students and teachers</strong></li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-org"><a href="https://www.gladiatosui.com/">Gladiatos Robotics, Universitas Indonesia</a></span>
+      <span class="entry-date">Jun 2024 – Jun 2025</span>
+    </div>
+    <div class="entry-role">Managing Director - Project and IoT Product Manager</div>
+    <ul>
+      <li>In the <strong>first month of leadership</strong>, restructured the product and technical roadmap and directed execution to get a previously immobile humanoid robot <strong>walking</strong></li>
+      <li>Reorganized team structure, workload allocation, and mentorship coordination with SNUST Korea to stabilize delivery through a <strong>resource-constrained, near-disbanded period</strong></li>
+      <li>Established an iteration-based development rhythm through <strong>9 robocar builds</strong> and competition preparation, leading the team to <strong>Top 16 and Top 8</strong> national finishes</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-org"><a href="https://www.ristek.cs.ui.ac.id/">RISTEK Fasilkom UI</a></span>
+      <span class="entry-date">Jan – Dec 2024</span>
+    </div>
+    <div class="entry-role">Vice Director of Business Growth, Business Growth and Partnerships Student Interest Group · PIC Datathon 2024</div>
+    <ul>
+      <li>Led partnership development with <strong>10+ institutions</strong>, securing agreements worth over <strong>$49,000</strong> and managing timelines, deliverables, and stakeholder communication</li>
+      <li>Spearheaded academic collaboration between Fasilkom UI, <strong>University of Sussex, and Monash University</strong></li>
+      <li>Scaled Datathon into the <strong>largest student-led data competition in Indonesia</strong>, drawing <strong>800+ participants</strong> from UI, ITB, UGM, Oxford, NTU, NUS, UoFT, and Monash</li>
+    </ul>
+  </div>
+
+  <!-- Education -->
+  <h2>Education</h2>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span><span class="entry-org">Bachelor of Computer Science, Universitas Indonesia</span> · Faculty of Computer Science (Fasilkom UI) · GPA 3.89 / 4.00</span>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span><span class="entry-org">Nanyang Technological University, INSPIRASI Summer Program</span> · Sustainability, Smart City, Circular Economy · LPDP Scholar</span>
+    </div>
+  </div>
+
+  <!-- Skills -->
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-row"><span class="skill-label">Product: </span>Jira, Confluence, Amplitude, Figma, Notion, PRD, EDD, OKR, User Story, Roadmap, Sprint, A/B Testing, User Research, API Design, System Design</div>
+    <div class="skill-row"><span class="skill-label">AI / Agentic: </span>LangChain, LangFuse, Gemini, Prompt Engineering, On-premise LLM, LLM Evaluation / RAG, Multi-agent / Agentic Systems</div>
+    <div class="skill-row"><span class="skill-label">ML / Data: </span>PyTorch, Scikit-Learn, Pandas, NumPy, BigQuery, RL Simulation</div>
+    <div class="skill-row"><span class="skill-label">Infra: </span>GCP, Docker, PostgreSQL, Redis, CI/CD</div>
+    <div class="skill-row"><span class="skill-label">Languages: </span>Python, JavaScript, Java, Dart, SQL</div>
+    <div class="skill-row"><span class="skill-label">Domain: </span>Pricing Strategy, Behavioral Economics, Legal-Tech, Game Industry, B2B SaaS</div>
+  </div>
+
+  <!-- Achievements -->
+  <h2>Selected Achievements</h2>
+  <div class="wins">
+    <div class="win"><span class="win-scope">[NATL]</span> <strong>Gold Medal · GEMASTIK 2024 Software Development (2024)</strong> — Won one of Indonesia's most prestigious product and software development competitions, backed by Pusat Prestasi Nasional, after competing against 300+ preliminary teams and 20 finalist teams.</div>
+    <div class="win"><span class="win-scope">[INTL]</span> <strong>Top 5% Worldwide · Startup Wheel 2026</strong> — Ranked among the strongest global startup teams in an international venture and entrepreneurship competition.</div>
+    <div class="win"><span class="win-scope">[NATL]</span> <strong>1st Winner · Management Exposed, FEB UI (2023)</strong> — Finished 1st among 100+ teams in a major management and business competition hosted by FEB UI.</div>
+    <div class="win"><span class="win-scope">[NATL]</span> <strong>1st Runner Up · ShARE UI Business Plan Competition (2024)</strong> — Built one of the strongest business plans from 56 preliminary teams and placed 2nd among 5 finalist teams.</div>
+    <div class="win"><span class="win-scope">[NATL]</span> <strong>1st Runner Up · Tanoto Future Leader Startup and Pitching (2023)</strong> — Placed 2nd from 300+ applicants; led deck, financials, prototype coding, business model refinement, and final presentation as COO.</div>
+    <div class="win"><span class="win-scope">[NATL]</span> <strong>Young Leaders for Indonesia — Wave 17 Awardee, McKinsey &amp; Company x YLI Foundation (2025)</strong> — Selected for McKinsey-backed leadership development, joining a national cohort of high-potential Indonesian young leaders.</div>
+    <div class="win"><span class="win-scope">[NATL]</span> <strong>Top 5 · AI Incubation for Public Sector — British Embassy x UK-Indonesia Tech Hub (2026)</strong> — Reached the top cohort for public-sector AI solutions through Kalana Consulting, recognized by the British Embassy and UK-Indonesia Tech Hub.</div>
+    <div class="win"><span class="win-scope">[INTL]</span> <strong>Finalist Top 6 · International Ganesha Business Case Competition (2024)</strong> — Placed in the top 6 of an international business case competition with 130+ participating teams.</div>
+    <div class="win"><span class="win-scope">[INTL]</span> <strong>Finalist Top 10 · StudentxCEOs International Business Case (2024)</strong> — Reached the top 10 in an international case competition with 60+ teams, demonstrating strategy and executive communication skills.</div>
+    <div class="win"><span class="win-scope">[INTL]</span> <strong>Top 20 · Microsoft Elevate AI Impact Challenge (2026)</strong> — Recognized by Microsoft Elevate for an AI impact proposal focused on practical, scalable technology outcomes.</div>
+  </div>
+
+  <!-- References -->
+  <h2>Selected References</h2>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span><span class="entry-org">Aditya Zulfahmi, S.Kom.</span> · Associate VP of Product Management at tiket.com · Pricing &amp; Promo</span>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span><span class="entry-org">Adila Alfa Krisnadhi, S.Kom., M.Sc., Ph.D</span> · Chief Scientist at Lexin · Head of Major of Artificial Intelligence in Fasilkom UI · Academic Supervisor</span>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span><span class="entry-org">Dr. Panca Hadi Putra, S.H., B.Sc., M.Bus.</span> · Executive Director · Product Lead at Lexin</span>
+    </div>
+  </div>
+
+</body>
+</html>
